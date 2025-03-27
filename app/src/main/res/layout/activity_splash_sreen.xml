@@ -5,7 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllActivity.SplashScreenActivity">
+    tools:context=".Auth.SplashScreenActivity">
+
+
+    <TextView
+        android:id="@+id/SplashText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Learning Platform"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
 
     <ImageView
         android:id="@+id/imageView"
@@ -16,6 +26,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <ImageView
+        android:id="@+id/splashLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/SplashText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26"
+        app:srcCompat="@drawable/logo2"
+        tools:ignore="ContentDescription" />
         app:srcCompat="@drawable/logo2" />
 
     <TextView
