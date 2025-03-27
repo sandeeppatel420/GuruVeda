@@ -1,4 +1,4 @@
-package com.example.guruveda.AllActivity
+package com.example.guruveda.Auth
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

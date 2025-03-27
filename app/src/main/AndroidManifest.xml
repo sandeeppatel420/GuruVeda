@@ -16,14 +16,14 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".AllActivity.SignupActivity"
+            android:name=".Auth.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".AllActivity.LoginActivity"
+            android:name=".Auth.LoginActivity"
             android:exported="false" />
 
         <activity
-            android:name=".AllActivity.SplashScreenActivity"
+            android:name=".Auth.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
