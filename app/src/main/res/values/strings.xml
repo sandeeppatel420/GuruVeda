@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">GuruVeda</string>
-    <string name="sign_up_now">  SignUp now</string>
+    <string name="sign_up_now">SignUp now</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="login">Login</string>
     <string name="login_to_account">Login To Account</string>
