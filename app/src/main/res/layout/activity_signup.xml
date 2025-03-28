@@ -79,7 +79,7 @@
             android:layout_marginTop="15dp"
             android:paddingStart="10dp"/>
         <EditText
-            android:id="@+id/signUpConPass"
+            android:id="@+id/signUpConPassword"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:inputType="textEmailAddress"
@@ -89,7 +89,7 @@
             android:paddingStart="10dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/loginBtn"
+            android:id="@+id/signupBtn"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@drawable/button_design"

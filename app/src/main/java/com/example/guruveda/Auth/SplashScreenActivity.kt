@@ -4,8 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.guruveda.MainActivity
 import com.example.guruveda.databinding.ActivitySplashSreenBinding
+import com.google.firebase.auth.FirebaseAuth
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -15,9 +18,20 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashSreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Handler().postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
-        },1000)
+        val auth= FirebaseAuth.getInstance()
+        val currentUser=auth.currentUser
+        Handler(Looper.getMainLooper()).postDelayed({
+
+            if (currentUser!=null){
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            else{
+                startActivity(Intent(this,LoginActivity::class.java))
+                finish()
+            }
+
+        }, 3000)
 
     }
 }
