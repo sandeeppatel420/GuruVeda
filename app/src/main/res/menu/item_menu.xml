@@ -3,18 +3,18 @@
     <item
         android:id="@+id/home_icon"
         android:title="Home"
-        android:icon="@drawable/home_24"/>
+        android:icon="@drawable/home_icon"/>
 
     <item
         android:id="@+id/card_icon"
-        android:title="Add Card"
-        android:icon="@drawable/home_24"/>
+        android:title="My Test"
+        android:icon="@drawable/img"/>
     <item
         android:id="@+id/myOrder_icon"
-        android:title="Myorder "
-        android:icon="@drawable/home_24"/>
+        android:title="My Courses "
+        android:icon="@drawable/img_1"/>
     <item
         android:id="@+id/profile_icon"
         android:title="Profile"
-        android:icon="@drawable/home_24"/>
+        android:icon="@drawable/profile_icon"/>
 </menu>

@@ -3,6 +3,9 @@ package com.example.guruveda
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.guruveda.Fragment.CourseFragment
 import com.example.guruveda.Fragment.HomeFragment
 import com.example.guruveda.Fragment.ProfileFragment
@@ -15,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        imageSlider()
 
         bottomNav = findViewById(R.id.bottomNav)
         loadFragment(HomeFragment())
@@ -41,6 +46,8 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener false
                 }
             }
+
+
         }
     }
 
@@ -49,4 +56,14 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.frameLayout_container, fragment)
         transaction.commit()
     }
+    private fun imageSlider() {
+        val imageList = ArrayList<SlideModel>()
+        imageList.add(SlideModel(R.drawable.banner1, "Online Courses"))
+        imageList.add(SlideModel(R.drawable.banner2, "Professional"))
+        imageList.add(SlideModel(R.drawable.banner3, "All Courses"))
+
+        val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
+        imageSlider.setImageList(imageList, ScaleTypes.FIT)
+    }
+
 }
