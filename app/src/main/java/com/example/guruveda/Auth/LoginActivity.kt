@@ -1,4 +1,4 @@
-package com.example.guruveda.AllActivity
+package com.example.guruveda.Auth
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,5 +10,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.signUp.setOnClickListener {
+
+        }
     }
 }
