@@ -12,9 +12,7 @@ import com.example.guruveda.databinding.ActivitySignupBinding
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding:ActivitySignupBinding
-
     private lateinit var progressDialog: ProgressDialog
-
     private lateinit var userViewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
