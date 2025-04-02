@@ -1,60 +1,88 @@
 package com.example.guruveda.Fragment
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.example.guruveda.Auth.LoginActivity
 import com.example.guruveda.R
+import com.example.guruveda.ViewModel.AuthViewModel
+import com.example.guruveda.ViewModel.GetUserDataViewModel
+import com.example.guruveda.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private var binding: FragmentProfileBinding?=null
+    private lateinit var viewModel: GetUserDataViewModel
+    private lateinit var datalist:ArrayList<AuthViewModel>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding=FragmentProfileBinding.inflate(inflater, container, false)
+        val view=binding?.root
+        binding?.userLogoutText?.setOnClickListener {
+            logout()
+        }
+
+
+        datalist=ArrayList()
+
+        viewModel= ViewModelProvider(this)[GetUserDataViewModel::class.java]
+        viewModel.getUser()
+        viewModel.users1.observe(viewLifecycleOwner){
+            binding?.userNameText1?.text=it.name
+            binding?.userEmailText1?.text=it.email
+            Glide.with(requireContext())
+                .load(it.imageProfile)
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.edit_24)
+                .into(binding?.profileImage!!)
+        }
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun logout(){
+        val dialog= AlertDialog.Builder(requireContext())
+        dialog.setTitle("Log Out")
+        dialog.setMessage("Are you sure you want to logout?")
+        dialog.setPositiveButton("Logout"){ b ,_->
+            FirebaseAuth.getInstance().signOut()
+            val intent= Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+            b.dismiss()
+            Toast.makeText(requireContext(), "Logout", Toast.LENGTH_SHORT).show()
+        }
+        dialog.setNegativeButton("Cancle"){a,_->
+            a.cancel()
+            Toast.makeText(requireContext(), "Cancle", Toast.LENGTH_SHORT).show()
+        }
+        dialog.setCancelable(false)
+        val alertDialog = dialog.create()
+
+        alertDialog.show()
+
+
+        val positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+        positiveButton.setTextColor(
+            ContextCompat.getColor(requireContext(),
+            R.color.healthTextColor
+        ))
+
+        val negativeButton=alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+        negativeButton.setTextColor(
+            ContextCompat.getColor(requireContext(),
+            R.color.healthTextColor
+        ))
     }
 }
