@@ -213,7 +213,6 @@
         app:itemTextColor="#F10A0A"
         android:textAlignment="center"
         app:itemIconSize="25dp"
-        app:labelVisibilityMode="labeled"
-        />
+        app:labelVisibilityMode="labeled" />
 
 </RelativeLayout>
