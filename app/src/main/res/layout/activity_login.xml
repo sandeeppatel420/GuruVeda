@@ -25,7 +25,6 @@
                 android:layout_height="203dp"
                 android:layout_gravity="center"
                 android:importantForAccessibility="no"
-
                 android:src="@drawable/logo2" />
         </androidx.cardview.widget.CardView>
 
