@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllActivity.SignupActivity">
+    android:orientation="vertical"
+    tools:context=".Auth.SignupActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="209dp"
+        android:background="@color/gray"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="103dp"
+            android:layout_height="103dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/logo2" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register To your Account"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="25dp"
+       />
+
+    <EditText
+        android:id="@+id/signUpName"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/shape"
+        android:hint="Enter Name"
+        android:paddingStart="10dp"
+        />
+
+
+        <EditText
+            android:id="@+id/signUpEmail"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/shape"
+            android:hint="Enter E-Mail"
+            android:layout_marginTop="15dp"
+            android:paddingStart="15dp"/>
+        <EditText
+            android:id="@+id/signUpPhone"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/shape"
+            android:hint="Phone Number"
+            android:layout_marginTop="15dp"
+            android:paddingStart="10dp"/>
+        <EditText
+            android:id="@+id/signUpPass"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/shape"
+            android:hint="Enter Password"
+            android:layout_marginTop="15dp"
+            android:paddingStart="10dp"/>
+        <EditText
+            android:id="@+id/signUpConPassword"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/shape"
+            android:hint="Enter conform Password"
+            android:layout_marginTop="15dp"
+            android:paddingStart="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/button_design"
+            android:text="Sign Up"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
