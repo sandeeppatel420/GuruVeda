@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.guruveda.MainActivity
+import com.example.guruveda.R
 import com.example.guruveda.databinding.ActivitySplashSreenBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -32,6 +35,10 @@ class SplashScreenActivity : AppCompatActivity() {
             }
 
         }, 3000)
-
+     setStatusBar()
+    }
+    private fun setStatusBar() {
+        val statusBarColor = ContextCompat.getColor(this, R.color.black2)
+        window.statusBarColor = statusBarColor
     }
 }

@@ -8,192 +8,7 @@
     android:orientation="vertical"
     android:padding="8dp"
     tools:context=".MainActivity">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/logo2"
-            android:layout_marginLeft="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Courses"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/categary_icon"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"/>
 
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/notifications_icon"
-            android:layout_gravity="center"
-            android:layout_marginLeft="60dp"/>
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/profile_icon"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            />
-
-    </LinearLayout>
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/imageSlider"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        app:iss_auto_cycle="true"
-        app:iss_period="1000"
-        app:iss_delay="1000"
-        app:iss_text_align="CENTER"
-        android:layout_margin="20dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quick Access"
-        android:textSize="24dp"
-        android:layout_marginTop="10dp"/>
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginTop="15dp"
-        android:columnCount="3"
-        android:gravity="center"
-       >
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/image19"
-            android:gravity="center"
-            android:text="All Courses"
-            android:drawablePadding="8dp"
-            android:background="#43A07040"
-            android:layout_margin="5dp"
-            android:paddingStart="10dp"
-         />
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/test20"
-            android:paddingStart="10dp"
-            android:gravity="center"
-            android:text="Test\nSeries"
-            android:drawablePadding="2dp"
-            android:background="#43FDE000"
-            android:layout_margin="5dp"
-            />
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/quize4"
-            android:paddingStart="10dp"
-            android:gravity="center"
-            android:text="Test\nSeries"
-            android:drawablePadding="8dp"
-            android:background="#76FDD500"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            />
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/liveimg"
-            android:paddingStart="10dp"
-            android:gravity="center"
-            android:text="Live\nBatches"
-            android:drawablePadding="8dp"
-            android:background="#8C60FD00"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            />
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/recorded3"
-            android:paddingStart="10dp"
-            android:gravity="center"
-            android:text="Recorded\n Batches"
-            android:drawablePadding="8dp"
-            android:background="#6EFD4400"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            />
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/free6"
-            android:paddingStart="10dp"
-            android:gravity="center"
-            android:text="Free Video"
-            android:drawablePadding="8dp"
-            android:background="#47FDCA00"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            />
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/download"
-            android:paddingStart="5dp"
-            android:gravity="center"
-            android:text="Downloads"
-            android:drawablePadding="1dp"
-            android:background="#76FDDA00"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            />
-        <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:drawableLeft="@drawable/dout6"
-            android:paddingStart="10dp"
-            android:gravity="center"
-            android:text="Doubt"
-            android:drawablePadding="8dp"
-            android:background="#4CB1FD00"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            />
-    </GridLayout>
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Free Video"
-
-        />
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-    <VideoView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"/>
-        </LinearLayout>
-    </HorizontalScrollView>
-</LinearLayout>
     <FrameLayout
         android:id="@+id/frameLayout_container"
         android:layout_width="match_parent"
@@ -201,19 +16,16 @@
         android:layout_above="@+id/bottomNav"
         />
 
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/item_menu"
-        android:focusable="true"
-        app:itemTextColor="#F10A0A"
-        android:textAlignment="center"
-        app:itemIconSize="25dp"
-        app:labelVisibilityMode="labeled"
-        />
+        android:layout_gravity="bottom"
+        android:background="#fff"
+        android:fadingEdge="horizontal"
+        app:cnb_menuResource="@menu/item_menu"
+        android:backgroundTint="@color/black2"
+        app:cnb_unselectedColor="@android:color/white"/>
 
 </RelativeLayout>
