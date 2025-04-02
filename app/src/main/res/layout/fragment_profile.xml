@@ -76,7 +76,7 @@
                 android:layout_height="40dp"
                 app:cardCornerRadius="40dp"
                 android:layout_marginLeft="30dp"
-                android:backgroundTint="@color/healthTextColor">
+                android:backgroundTint="@color/black2">
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -104,7 +104,7 @@
                 android:layout_height="40dp"
                 app:cardCornerRadius="40dp"
                 android:layout_marginLeft="30dp"
-                android:backgroundTint="@color/healthTextColor">
+                android:backgroundTint="@color/black2">
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -131,7 +131,7 @@
                 android:layout_height="40dp"
                 app:cardCornerRadius="40dp"
                 android:layout_marginLeft="30dp"
-                android:backgroundTint="@color/healthTextColor">
+                android:backgroundTint="@color/black2">
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -159,7 +159,7 @@
                 android:layout_height="40dp"
                 app:cardCornerRadius="40dp"
                 android:layout_marginLeft="30dp"
-                android:backgroundTint="@color/healthTextColor">
+                android:backgroundTint="@color/black2">
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -187,7 +187,7 @@
             android:layout_height="40dp"
             app:cardCornerRadius="40dp"
             android:layout_marginLeft="30dp"
-            android:backgroundTint="@color/healthTextColor">
+            android:backgroundTint="@color/black2">
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"

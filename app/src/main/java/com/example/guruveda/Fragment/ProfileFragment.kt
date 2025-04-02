@@ -13,6 +13,8 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.guruveda.Auth.LoginActivity
+import com.example.guruveda.Auth.ProfileEditActivity
+import com.example.guruveda.DataModel.AuthModel
 import com.example.guruveda.R
 import com.example.guruveda.ViewModel.AuthViewModel
 import com.example.guruveda.ViewModel.GetUserDataViewModel
@@ -23,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth
 class ProfileFragment : Fragment() {
     private var binding: FragmentProfileBinding?=null
     private lateinit var viewModel: GetUserDataViewModel
-    private lateinit var datalist:ArrayList<AuthViewModel>
+    private lateinit var datalist:ArrayList<AuthModel>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +36,15 @@ class ProfileFragment : Fragment() {
             logout()
         }
 
+        val name=binding?.userNameText1?.text.toString()
+        val email=binding?.userEmailText1?.text.toString()
+        binding?.userEditProfileText?.setOnClickListener {
+          val intent=Intent(requireContext(),ProfileEditActivity::class.java)
+            intent.putExtra("name",name)
+            intent.putExtra("email",email)
+            intent.putExtra("imageProfile",datalist[0].imageProfile)
+            startActivity(intent)
+        }
 
         datalist=ArrayList()
 
@@ -76,13 +87,13 @@ class ProfileFragment : Fragment() {
         val positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
         positiveButton.setTextColor(
             ContextCompat.getColor(requireContext(),
-            R.color.healthTextColor
+            R.color.black2
         ))
 
         val negativeButton=alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
         negativeButton.setTextColor(
             ContextCompat.getColor(requireContext(),
-            R.color.healthTextColor
+            R.color.black2
         ))
     }
 }

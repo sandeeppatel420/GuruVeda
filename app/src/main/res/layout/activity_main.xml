@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:padding="8dp"
     tools:context=".MainActivity">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -179,20 +180,7 @@
         android:layout_height="wrap_content"
         android:text="Free Video"
 
-        />
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-    <VideoView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"/>
-        </LinearLayout>
-    </HorizontalScrollView>
-</LinearLayout>
+
     <FrameLayout
         android:id="@+id/frameLayout_container"
         android:layout_width="match_parent"
@@ -200,18 +188,16 @@
         android:layout_above="@+id/bottomNav"
         />
 
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/item_menu"
-        android:focusable="true"
-        app:itemTextColor="#F10A0A"
-        android:textAlignment="center"
-        app:itemIconSize="25dp"
-        app:labelVisibilityMode="labeled" />
+        android:layout_gravity="bottom"
+        android:background="#fff"
+        android:fadingEdge="horizontal"
+        app:cnb_menuResource="@menu/item_menu"
+        android:backgroundTint="@color/black2"
+        app:cnb_unselectedColor="@android:color/white"/>
 
 </RelativeLayout>

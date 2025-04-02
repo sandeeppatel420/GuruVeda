@@ -13,7 +13,6 @@ import com.example.guruveda.ViewModel.AuthViewModel
 import com.example.guruveda.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.getValue
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding:ActivityLoginBinding
@@ -48,6 +47,11 @@ class LoginActivity : AppCompatActivity() {
                 showToast("Enter a valid email")
                 return@setOnClickListener
             }
+            if (!isValidPassword(userPassword)) {
+                showToast("Password is InCorrect")
+                return@setOnClickListener
+            }
+
 
             progressDialog.show()
             userViewModel.login(userEmail, userPassword)
@@ -66,6 +70,11 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@\$!%*?&]{8,}$"
+        return password.matches(Regex(passwordPattern))
     }
 
 }
