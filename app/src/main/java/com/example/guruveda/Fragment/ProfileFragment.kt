@@ -1,22 +1,22 @@
 package com.example.guruveda.Fragment
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.guruveda.Auth.LoginActivity
 import com.example.guruveda.Auth.ProfileEditActivity
 import com.example.guruveda.DataModel.AuthModel
 import com.example.guruveda.R
-import com.example.guruveda.ViewModel.AuthViewModel
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import com.example.guruveda.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +26,7 @@ class ProfileFragment : Fragment() {
     private var binding: FragmentProfileBinding?=null
     private lateinit var viewModel: GetUserDataViewModel
     private lateinit var datalist:ArrayList<AuthModel>
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,17 +37,22 @@ class ProfileFragment : Fragment() {
             logout()
         }
 
-        val name=binding?.userNameText1?.text.toString()
-        val email=binding?.userEmailText1?.text.toString()
+
+        datalist=ArrayList()
+
         binding?.userEditProfileText?.setOnClickListener {
+            val name=binding?.userNameText1?.text.toString()
+            val email=binding?.userEmailText1?.text.toString()
           val intent=Intent(requireContext(),ProfileEditActivity::class.java)
             intent.putExtra("name",name)
             intent.putExtra("email",email)
-            intent.putExtra("imageProfile",datalist[0].imageProfile)
+//            intent.putExtra("imageProfile",datalist[0].imageProfile)
             startActivity(intent)
         }
 
-        datalist=ArrayList()
+
+
+
 
         viewModel= ViewModelProvider(this)[GetUserDataViewModel::class.java]
         viewModel.getUser()

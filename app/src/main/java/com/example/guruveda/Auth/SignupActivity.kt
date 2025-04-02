@@ -13,7 +13,6 @@ import com.example.guruveda.databinding.ActivitySignupBinding
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding:ActivitySignupBinding
 
-    lateinit var userViewModel: AuthViewModel
     private lateinit var progressDialog: ProgressDialog
 
     private lateinit var userViewModel: AuthViewModel
