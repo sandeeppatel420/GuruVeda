@@ -43,19 +43,19 @@ class LoginActivity : AppCompatActivity() {
             val userPassword=binding.passwordLogin.text.toString()
 
 
-            if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-                showToast("Enter a valid email")
-                return@setOnClickListener
+            if (userEmail=="") {
+                showToast("Enter a  email")
+
             }
-            if (!isValidPassword(userPassword)) {
-                showToast("Password is InCorrect")
-                return@setOnClickListener
+            else if (userPassword==""){
+                showToast("Enter a  password")
+            }
+            else{
+                progressDialog.show()
+                userViewModel.login(userEmail, userPassword)
+            }
             }
 
-
-            progressDialog.show()
-            userViewModel.login(userEmail, userPassword)
-        }
 
         userViewModel.users.observe(this) {
             progressDialog.dismiss()
@@ -72,9 +72,9 @@ class LoginActivity : AppCompatActivity() {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
-    private fun isValidPassword(password: String): Boolean {
-        val passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@\$!%*?&]{8,}$"
-        return password.matches(Regex(passwordPattern))
-    }
+//    private fun isValidPassword(password: String): Boolean {
+//        val passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@\$!%*?&]{8,}$"
+//        return password.matches(Regex(passwordPattern))
+//    }
 
 }

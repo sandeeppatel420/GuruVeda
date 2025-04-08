@@ -57,4 +57,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 }

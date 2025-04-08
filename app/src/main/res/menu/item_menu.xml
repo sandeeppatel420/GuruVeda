@@ -9,21 +9,29 @@
        />
 
     <item
-        android:id="@+id/card_icon"
-        android:title="Add Card"
+        android:id="@+id/course"
+        android:title="course"
         app:cnb_iconColor="#FFFFFF"
-        android:icon="@drawable/home_24"
+        android:icon="@drawable/course"
         />
     <item
-        android:id="@+id/myOrder_icon"
-        android:title="Myorder "
+        android:id="@+id/openBook"
+        android:title="Pdf"
         app:cnb_iconColor="#FFFFFF"
-        android:icon="@drawable/home_24"
+        android:icon="@drawable/pdf_24"
+        />
+    <item
+        android:id="@+id/MyTest_icon"
+        android:title="MyTest"
+        app:cnb_iconColor="#FFFFFF"
+        android:icon="@drawable/test"
        />
+
+
     <item
         android:id="@+id/profile_icon"
         android:title="Profile"
         app:cnb_iconColor="#FFFFFF"
-        android:icon="@drawable/home_24"
-      />
+        android:icon="@drawable/profile_icon"
+        />
 </menu>
