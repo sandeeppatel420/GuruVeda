@@ -1,20 +1,33 @@
 package com.example.guruveda.Fragment
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.guruveda.R
+import com.example.guruveda.TestSeriesActivity
 
 
 class HomeFragment : Fragment() {
+    private lateinit var testSeriesTextView: TextView
+    @SuppressLint("MissingInflatedId", "CommitTransaction")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        testSeriesTextView=view.findViewById(R.id.testSeries_TextView)
+        testSeriesTextView.setOnClickListener {
+            val intent = Intent(requireContext(), TestSeriesActivity::class.java)
+            startActivity(intent)
+        }
+
+        return view
     }
 
 

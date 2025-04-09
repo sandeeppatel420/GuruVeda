@@ -79,6 +79,7 @@
                 android:paddingStart="10dp"
                 />
             <TextView
+                android:id="@+id/testSeries_TextView"
                 android:layout_width="119dp"
                 android:layout_height="50dp"
                 android:drawableLeft="@drawable/test20"
