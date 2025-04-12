@@ -3,6 +3,7 @@ package com.example.guruveda.Fragment
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide
 import com.example.guruveda.Auth.LoginActivity
 import com.example.guruveda.Auth.ProfileEditActivity
 import com.example.guruveda.DataModel.AuthModel
+import com.example.guruveda.MainActivity
 import com.example.guruveda.R
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import com.example.guruveda.databinding.FragmentProfileBinding
@@ -33,37 +35,46 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding=FragmentProfileBinding.inflate(inflater, container, false)
         val view=binding?.root
-        binding?.userLogoutText?.setOnClickListener {
-            logout()
-        }
+//        binding?.userLogoutText?.setOnClickListener {
+//            logout()
+//        }
 
 
         datalist=ArrayList()
-
-        binding?.userEditProfileText?.setOnClickListener {
+        binding?.editLayout?.setOnClickListener {
             val name=binding?.userNameText1?.text.toString()
             val email=binding?.userEmailText1?.text.toString()
           val intent=Intent(requireContext(),ProfileEditActivity::class.java)
             intent.putExtra("name",name)
             intent.putExtra("email",email)
-//            intent.putExtra("imageProfile",datalist[0].imageProfile)
+            intent.putExtra("imageProfile",datalist[0].imageProfile)
+            intent.putExtra("id",datalist[0].userId)
             startActivity(intent)
         }
-
-
-
-
 
         viewModel= ViewModelProvider(this)[GetUserDataViewModel::class.java]
         viewModel.getUser()
         viewModel.users1.observe(viewLifecycleOwner){
             binding?.userNameText1?.text=it.name
             binding?.userEmailText1?.text=it.email
+            binding?.userPhoneText1?.text=it.phoneNumber
+            datalist.add(it)
             Glide.with(requireContext())
                 .load(it.imageProfile)
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.edit_24)
                 .into(binding?.profileImage!!)
+            binding?.progressCircular1?.visibility = View.GONE
+        }
+
+
+        binding?.progressCircular1?.visibility = View.VISIBLE
+        binding?.progressCircular1?.indeterminateTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.white))
+
+        binding?.backspace?.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout_container, HomeFragment())
+                .addToBackStack(null)
+                .commit()
+            (activity as? MainActivity)?.selectFragment(R.id.home_icon, HomeFragment())
         }
         return view
     }
