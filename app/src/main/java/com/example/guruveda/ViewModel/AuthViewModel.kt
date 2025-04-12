@@ -22,6 +22,7 @@ class AuthViewModel : ViewModel() {
                         "email" to email,
                         "phoneNumber" to phoneNumber,
                         "userId" to it.uid,
+                        "conformPassword" to confirmPassword,
                         "imageProfile" to "https://firebasestorage.googleapis.com/v0/b/onlyrealtimedata.appspot.com/o/image%2Fprofile1.png?alt=media&token=183f368e-8d5a-4ab6-bb16-8e6ad657ec57"
                     )
                     db.getReference("Users1").child(it.uid).setValue(data)
