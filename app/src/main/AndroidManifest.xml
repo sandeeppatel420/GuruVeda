@@ -20,6 +20,17 @@
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
         <activity
+            android:name=".CourseDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VideoPlayerActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".AllCoursesActivity"
+            android:exported="false" />
+        <activity
             android:name=".Auth.ProfileEditActivity"
             android:exported="false" />
         <activity
