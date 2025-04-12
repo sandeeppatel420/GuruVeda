@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.guruveda.AllCoursesActivity
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -15,6 +16,7 @@ import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.guruveda.R
+import com.example.guruveda.SelectedActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 
 
@@ -36,6 +38,8 @@ class HomeFragment : Fragment() {
 
 
 
+
+
         profileViewModel=ViewModelProvider(this)[GetUserDataViewModel::class.java]
         profileIcon=myView.findViewById(R.id.profile_icon_image)
         profileViewModel.getUser()
@@ -52,6 +56,12 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
         imageSlider.setImageList(imageList)
+
+
+        val selectedText=myView.findViewById<TextView>(R.id.selected_TextView)
+        selectedText.setOnClickListener {
+         startActivity(Intent(requireContext(),SelectedActivity::class.java))
+        }
         return myView
     }
 
