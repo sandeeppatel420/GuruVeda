@@ -1,5 +1,6 @@
 package com.example.guruveda
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -20,6 +21,7 @@ class SelectedAdapter(val myContext: Context,val user:ArrayList<SubjectModel> ):
         return SelectedViewHolder(myView)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onBindViewHolder(holder: SelectedViewHolder, position: Int) {
        val users=user[position]
         holder.subText.text=users.subjectName

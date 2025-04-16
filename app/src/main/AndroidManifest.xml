@@ -20,6 +20,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
+
+        <activity android:name=".VideoPlayerActivity"
+            android:exported="false" />
+        <activity android:name=".CourseDetailActivity"
+            android:exported="false" />
+        <activity android:name=".AllCoursesActivity"
+            android:exported="false" />
+
         <activity
             android:name=".SelectedActivity"
             android:exported="false" />
