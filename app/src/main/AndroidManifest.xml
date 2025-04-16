@@ -32,7 +32,10 @@
             android:name=".SelectedActivity"
             android:exported="false" />
         <activity
-            android:name=".Auth.ProfileEditActivity"
+            android:name=".TestSeriesDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestSeriesActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
