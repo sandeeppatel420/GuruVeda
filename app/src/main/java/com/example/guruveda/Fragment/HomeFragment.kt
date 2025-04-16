@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.example.guruveda.AllCoursesActivity
 import android.widget.ImageView
 import android.widget.TextView
@@ -33,7 +32,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), AllCoursesActivity::class.java)
             startActivity(intent)
         }
-        return view
+
         val myView=LayoutInflater.from(requireContext()).inflate(R.layout.fragment_home, container, false)
 
 
