@@ -8,6 +8,9 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
+
     <FrameLayout
         android:id="@+id/frameLayout_container"
         android:layout_width="match_parent"
@@ -15,13 +18,14 @@
         android:layout_above="@+id/bottomNav"
         />
 
+
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:background="#fff"
+        android:background="#ffffff"
         android:fadingEdge="horizontal"
         app:cnb_menuResource="@menu/item_menu"
         android:backgroundTint="@color/black2"
