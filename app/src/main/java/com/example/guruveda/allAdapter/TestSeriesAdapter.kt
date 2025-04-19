@@ -19,7 +19,8 @@ class TestSeriesAdapter(private var testSeriesList: ArrayList<TestSeriesDataModa
         val testDescriptionTextView = itemView.findViewById<TextView>(R.id.test_description)
         val testDurationTextView = itemView.findViewById<TextView>(R.id.test_duration)
         val texstImageView = itemView.findViewById<ImageView>(R.id.test_image)
-
+        val testEditTextView = itemView.findViewById<TextView>(R.id.test_edit)
+        val testExitTextView = itemView.findViewById<TextView>(R.id.testExit_TextView)
 
     }
 
@@ -28,7 +29,6 @@ class TestSeriesAdapter(private var testSeriesList: ArrayList<TestSeriesDataModa
         return ViewHolder(view)
 
     }
-
 
     override fun onBindViewHolder(holder: TestSeriesAdapter.ViewHolder, position: Int) {
         val testSeries = testSeriesList[position]

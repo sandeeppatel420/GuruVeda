@@ -18,7 +18,7 @@ class TestSeriesViewModel : ViewModel() {
             }
             testSeriesList.value = tempList
         }.addOnFailureListener {
-            // Optional: Add error handling here
+
         }
     }
 }
