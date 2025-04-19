@@ -20,10 +20,19 @@
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
         <activity
-            android:name=".TestSeriesDetailsActivity"
+            android:name=".CourseDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".TestSeriesActivity"
+            android:name=".VideoPlayerActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:configChanges="orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".AllCoursesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.ProfileEditActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

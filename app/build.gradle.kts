@@ -52,12 +52,17 @@ dependencies {
     implementation(libs.googleid)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
-    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
+    implementation ("androidx.media3:media3-exoplayer:1.3.1")
+    implementation ("androidx.media3:media3-ui:1.3.1")
+
+
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+
 }

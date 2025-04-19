@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.HomeFragment">
 
     <RelativeLayout
@@ -16,56 +16,54 @@
             android:id="@+id/log1"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:cardCornerRadius="25dp"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            app:cardCornerRadius="25dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/logo2"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo2" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/selected_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/log1"
             android:text="Select Courses"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/log1"
-            android:layout_marginStart="16dp" />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/notification_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/notifications_icon"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp" />
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/notifications_icon" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/profile_card"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            app:cardCornerRadius="17dp"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true">
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="17dp">
 
             <ImageView
                 android:id="@+id/profile_icon_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/profile_icon"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_icon" />
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
-
-
 
 
     <androidx.cardview.widget.CardView
@@ -74,149 +72,150 @@
         android:layout_height="190dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp">
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/image_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:iss_auto_cycle="true"
+            app:iss_delay="2000"
             app:iss_no_dots="true"
             app:iss_period="2000"
-            app:iss_delay="2000"
             app:iss_text_align="CENTER" />
     </androidx.cardview.widget.CardView>
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Quick Access"
+        android:textSize="24dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="15dp"
+        android:columnCount="3"
+        android:gravity="center">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quick Access"
-            android:textSize="24dp"
-            android:layout_marginTop="10dp"/>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="15dp"
-            android:columnCount="3"
+            android:id="@+id/allCouresHome"
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="#43A07040"
+            android:drawableLeft="@drawable/image19"
+            android:drawablePadding="8dp"
             android:gravity="center"
-            >
-            <TextView
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/image19"
-                android:gravity="center"
-                android:text="All Courses"
-                android:drawablePadding="8dp"
-                android:background="#43A07040"
-                android:layout_margin="5dp"
-                android:paddingStart="10dp"
-                />
-            <TextView
-                android:id="@+id/testSeries_TextView"
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/test20"
-                android:paddingStart="10dp"
-                android:gravity="center"
-                android:text="Test\nSeries"
-                android:drawablePadding="2dp"
-                android:background="#43FDE000"
-                android:layout_margin="5dp"
-                />
-            <TextView
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/quize4"
-                android:paddingStart="10dp"
-                android:gravity="center"
-                android:text="Test\nSeries"
-                android:drawablePadding="8dp"
-                android:background="#76FDD500"
-                android:layout_margin="5dp"
-                android:layout_marginEnd="10dp"
-                />
-            <TextView
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/liveimg"
-                android:paddingStart="10dp"
-                android:gravity="center"
-                android:text="Live\nBatches"
-                android:drawablePadding="8dp"
-                android:background="#8C60FD00"
-                android:layout_margin="5dp"
-                android:layout_marginEnd="10dp"
-                />
-            <TextView
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/recorded3"
-                android:paddingStart="10dp"
-                android:gravity="center"
-                android:text="Recorded\n Batches"
-                android:drawablePadding="8dp"
-                android:background="#6EFD4400"
-                android:layout_margin="5dp"
-                android:layout_marginEnd="10dp"
-                />
-            <TextView
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/free6"
-                android:paddingStart="10dp"
-                android:gravity="center"
-                android:text="Free Video"
-                android:drawablePadding="8dp"
-                android:background="#47FDCA00"
-                android:layout_margin="5dp"
-                android:layout_marginEnd="10dp"
-                />
-            <TextView
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/download"
-                android:paddingStart="5dp"
-                android:gravity="center"
-                android:text="Downloads"
-                android:drawablePadding="1dp"
-                android:background="#76FDDA00"
-                android:layout_margin="5dp"
-                android:layout_marginEnd="10dp"
-                />
-            <TextView
-                android:layout_width="119dp"
-                android:layout_height="50dp"
-                android:drawableLeft="@drawable/dout6"
-                android:paddingStart="10dp"
-                android:gravity="center"
-                android:text="Doubt"
-                android:drawablePadding="8dp"
-                android:background="#4CB1FD00"
-                android:layout_margin="5dp"
-                android:layout_marginEnd="10dp"
-                />
-        </GridLayout>
+            android:paddingStart="10dp"
+            android:text="All Courses" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Free Video"
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="#43FDE000"
+            android:drawableLeft="@drawable/test20"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:text="Test\nSeries" />
 
-            />
-        <HorizontalScrollView
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#76FDD500"
+            android:drawableLeft="@drawable/quize4"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:text="Test\nSeries" />
+
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#8C60FD00"
+            android:drawableLeft="@drawable/liveimg"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:text="Live\nBatches" />
+
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#6EFD4400"
+            android:drawableLeft="@drawable/recorded3"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:text="Recorded\n Batches" />
+
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#47FDCA00"
+            android:drawableLeft="@drawable/free6"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:text="Free Video" />
+
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#76FDDA00"
+            android:drawableLeft="@drawable/download"
+            android:drawablePadding="1dp"
+            android:gravity="center"
+            android:paddingStart="5dp"
+            android:text="Downloads" />
+
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#4CB1FD00"
+            android:drawableLeft="@drawable/dout6"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:text="Doubt" />
+    </GridLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Free Video"
+
+        />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <VideoView
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="10dp"/>
-            </LinearLayout>
-        </HorizontalScrollView>
-    </LinearLayout>
+
+            <VideoView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>
