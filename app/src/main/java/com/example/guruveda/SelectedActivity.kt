@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guruveda.DataModel.SubjectModel
+import com.example.guruveda.allAdapter.SelectedAdapter
 
 class SelectedActivity : AppCompatActivity(){
     lateinit var myAdapter: SelectedAdapter
@@ -24,7 +25,7 @@ class SelectedActivity : AppCompatActivity(){
         dataList.add(SubjectModel("Kotlin"))
         dataList.add(SubjectModel("Kotlin"))
 
-        myAdapter=SelectedAdapter(this,dataList)
+        myAdapter= SelectedAdapter(this, dataList)
         selectecRecyclerView.adapter=myAdapter
     }
 

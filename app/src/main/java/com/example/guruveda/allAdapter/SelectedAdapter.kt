@@ -1,4 +1,4 @@
-package com.example.guruveda
+package com.example.guruveda.allAdapter
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.guruveda.DataModel.SubjectModel
+import com.example.guruveda.MainActivity
+import com.example.guruveda.R
 
 class SelectedAdapter(val myContext: Context,val user:ArrayList<SubjectModel> ):RecyclerView.Adapter<SelectedAdapter.SelectedViewHolder> (){
     override fun onCreateViewHolder(
@@ -27,7 +29,7 @@ class SelectedAdapter(val myContext: Context,val user:ArrayList<SubjectModel> ):
         holder.subText.text=users.subjectName
 
         holder.itemView.setOnClickListener {
-          val intent=Intent(myContext,MainActivity::class.java)
+          val intent=Intent(myContext, MainActivity::class.java)
             intent.putExtra("Courses","Courses")
             myContext.startActivity(intent)
             if (myContext is Activity) {
@@ -41,7 +43,7 @@ class SelectedAdapter(val myContext: Context,val user:ArrayList<SubjectModel> ):
        return user.size
     }
 
-    class SelectedViewHolder(itemView: View):ViewHolder(itemView){
+    class SelectedViewHolder(itemView: View): ViewHolder(itemView){
        val subText=itemView.findViewById<TextView>(R.id.subject_text)
     }
 }

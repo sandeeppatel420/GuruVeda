@@ -1,16 +1,14 @@
 package com.example.guruveda
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 
 class TestSeriesDetailsActivity : AppCompatActivity() {
-    @SuppressLint("CheckResult", "MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_texst_series_detail)
