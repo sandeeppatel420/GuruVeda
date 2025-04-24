@@ -5,10 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="25dp"
-    tools:context=".TestSeriesDetailsActivity">
+    android:orientation="horizontal"
+    tools:context=".AnswerDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +15,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/details_image"
+            android:id="@+id/answerDetails_ImageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="16dp"
@@ -28,7 +26,7 @@
 
 
         <TextView
-            android:id="@+id/details_subject"
+            android:id="@+id/answerSubjectDetail_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -39,7 +37,7 @@
 
         <!-- Title -->
         <TextView
-            android:id="@+id/details_title"
+            android:id="@+id/answerTitleDetail_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -49,7 +47,7 @@
 
         <!-- Description -->
         <TextView
-            android:id="@+id/details_description"
+            android:id="@+id/answerDescriptionDetail_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -59,7 +57,7 @@
 
         <!-- Duration -->
         <TextView
-            android:id="@+id/details_duration"
+            android:id="@+id/answerDurationDetail_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -67,47 +65,19 @@
             android:textColor="#555555"
             android:textSize="16sp" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/answersTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <!-- Question Text -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Question: What is the speed of light?"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/questionOptions_recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@color/white"
-                tools:ignore="DuplicateIds" />
-
-        </LinearLayout>
+            android:text="Answers will be shown here"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:paddingTop="16dp"/>
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submit_button"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:backgroundTint="#9775FA"
-        android:gravity="center"
-        android:text="Submit"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-21dp" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -11,8 +11,8 @@ import com.example.guruveda.DataModel.VideoModel
 import com.example.guruveda.ViewModel.VideoGetViewModel
 import com.example.guruveda.databinding.VideoItemBinding
 
-class VideoAdapter(val context: Context,val list: List<VideoModel>): RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {
-    class VideoViewHolder(val binding: VideoItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class VideoAdapter(val context: Context, private val list: List<VideoModel>): RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {
+    class VideoViewHolder(binding: VideoItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val videoImage = binding.videoImage
         val videoTitle = binding.videoTitle
         val videoDuration = binding.videoDuration

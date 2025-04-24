@@ -12,6 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <ImageView
@@ -39,25 +40,22 @@
                         android:id="@+id/test_tittle"
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
-                        android:layout_marginTop="5dp"
                         android:text="Test Tittle"
-                        android:textSize="20dp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/test_description"
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
-                        android:layout_marginTop="5dp"
                         android:text="Test Description"
-                        android:textSize="16dp" />
+                        android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/test_duration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:text="Test Duration"
-                        android:textSize="16dp" />
+                        android:textSize="14dp" />
 
 
 

@@ -8,4 +8,5 @@ data class TestQuestionModel(
     val optionD:String?=null,
     val question:String?=null,
     val questionId:String?=null,
+    var selectedAnswer: String? = null
     )

@@ -10,7 +10,7 @@ import com.example.guruveda.ViewModel.VideoPlayerViewModel
 import com.example.guruveda.databinding.ActivityVideoPlayerBinding
 
 class VideoPlayerActivity : AppCompatActivity() {
-    lateinit var binding: ActivityVideoPlayerBinding
+    private lateinit var binding: ActivityVideoPlayerBinding
     private var player: ExoPlayer? = null
     private val viewModel: VideoPlayerViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {

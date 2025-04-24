@@ -22,4 +22,10 @@ class QuestionViewModel : ViewModel() {
 
             }
     }
+
+    fun updateSelectedAnswer(questionId: String, selectedAnswer: String) {
+        val question = questionList.value?.find { it.questionId == questionId }
+        question?.selectedAnswer = selectedAnswer
+
+    }
 }

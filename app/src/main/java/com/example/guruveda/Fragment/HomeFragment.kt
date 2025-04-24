@@ -1,5 +1,6 @@
 package com.example.guruveda.Fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,22 +17,29 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.example.guruveda.AllCoursesActivity
 import com.example.guruveda.R
 import com.example.guruveda.SelectedActivity
+import com.example.guruveda.TestSeriesActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 
 
 class HomeFragment : Fragment() {
     private lateinit var profileIcon:ImageView
     private lateinit var profileViewModel:GetUserDataViewModel
+    private lateinit var testSeriesTextView:TextView
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView1 = view.findViewById<TextView>(R.id.allCouresHome)
+        val textView1 = view.findViewById<TextView>(R.id.allCoursesHome)
         textView1.setOnClickListener {
             val intent = Intent(requireContext(), AllCoursesActivity::class.java)
             startActivity(intent)
 
+        }
+        testSeriesTextView=view.findViewById(R.id.testSeries_TextView)
+        testSeriesTextView.setOnClickListener {
+            startActivity(Intent(requireContext(), TestSeriesActivity::class.java))
         }
 
 

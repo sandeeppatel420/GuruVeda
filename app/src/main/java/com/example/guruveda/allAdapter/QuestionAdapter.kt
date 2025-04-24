@@ -5,12 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guruveda.DataModel.TestQuestionModel
+import com.example.guruveda.MainActivity
 import com.example.guruveda.R
+import com.example.guruveda.ViewModel.QuestionViewModel
 
-class QuestionAdapter(private val questionList: ArrayList<TestQuestionModel>) :
+class QuestionAdapter(private val questionList: ArrayList<TestQuestionModel>, var questionViewModel: QuestionViewModel) :
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
     private var lastCheckedButton: RadioButton? = null
 
@@ -20,6 +24,7 @@ class QuestionAdapter(private val questionList: ArrayList<TestQuestionModel>) :
         val rbOptionB: RadioButton = itemView.findViewById(R.id.rbOptionB)
         val rbOptionC: RadioButton = itemView.findViewById(R.id.rbOptionC)
         val rbOptionD: RadioButton = itemView.findViewById(R.id.rbOptionD)
+        val radioGroup: RadioGroup = itemView.findViewById(R.id.radioGroupOptions)
     }
 
 
@@ -43,6 +48,8 @@ class QuestionAdapter(private val questionList: ArrayList<TestQuestionModel>) :
         holder.rbOptionC.text = question.optionC
         holder.rbOptionD.text = question.optionD
 
+
+
         val radioButton = arrayOf(
             holder.rbOptionA,
             holder.rbOptionB,
@@ -63,5 +70,10 @@ class QuestionAdapter(private val questionList: ArrayList<TestQuestionModel>) :
 
             }
         }
+//        questionViewModel=ViewModelProvider(holder.itemView.context as MainActivity).get(QuestionViewModel::class.java)
+//        questionViewModel.updateSelectedAnswer(question.questionId ?: "", lastCheckedButton?.text.toString())
+
     }
+
+
 }
