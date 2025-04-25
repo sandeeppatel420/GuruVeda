@@ -5,83 +5,97 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="25dp"
+    android:background="#F3F4F6"
+    android:padding="0dp"
     tools:context=".TestSeriesDetailsActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Toolbar with arrow and background -->
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:background="@color/healthTextColor"
+        android:title="Test Series"
+        android:titleTextColor="#FFFFFF"
+        app:navigationIcon="@drawable/arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText" />
 
-        <ImageView
-            android:id="@+id/details_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="16dp"
-            android:background="#EEEEEE"
-            android:contentDescription="Test Image"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground" />
-
-
-        <TextView
-            android:id="@+id/details_subject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Subject: Physics"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <!-- Title -->
-        <TextView
-            android:id="@+id/details_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Title: Motion Test"
-            android:textColor="#444444"
-            android:textSize="18sp" />
-
-        <!-- Description -->
-        <TextView
-            android:id="@+id/details_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Description: This is a test on motion chapter"
-            android:textColor="#555555"
-            android:textSize="16sp" />
-
-        <!-- Duration -->
-        <TextView
-            android:id="@+id/details_duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Duration: 45 minutes"
-            android:textColor="#555555"
-            android:textSize="16sp" />
+    <!-- ScrollView for all contents -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintBottom_toTopOf="@id/submit_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/contentLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@android:color/white"
             android:padding="16dp">
 
-            <!-- Question Text -->
+            <ImageView
+                android:id="@+id/details_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/image_background2"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/details_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="subject: physics"
+                android:textColor="#111827"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/details_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="title: motion test"
+                android:textColor="#374151"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/details_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="description: this is a test on motion chapter"
+                android:textColor="#4B5563"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/details_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="duration: 45 minutes"
+                android:textColor="#6B7280"
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Question: What is the speed of light?"
+                android:text="question: what is the speed of light?"
                 android:textColor="#000000"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -89,25 +103,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@color/white"
-                tools:ignore="DuplicateIds" />
+                android:background="#FFFFFF" />
 
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
-
+    <!-- Submit Button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:backgroundTint="#9775FA"
-        android:gravity="center"
-        android:text="Submit"
-        android:textColor="@color/white"
+        android:layout_height="60dp"
+        android:backgroundTint="#8B5CF6"
+        android:text="submit"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-21dp" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -61,7 +61,7 @@ dependencies {
 
     implementation ("androidx.media3:media3-exoplayer:1.3.1")
     implementation ("androidx.media3:media3-ui:1.3.1")
-
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 

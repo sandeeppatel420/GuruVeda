@@ -73,7 +73,7 @@ class TestSeriesDetailsActivity : AppCompatActivity() {
         val subject = intent.getStringExtra("subject")
         val title = intent.getStringExtra("title")
         val description = intent.getStringExtra("description")
-        val duration = intent.getStringExtra("duration")
+        val duration = intent.getStringExtra("duratui ion")
 
 
         subjectTextView.text = subject
