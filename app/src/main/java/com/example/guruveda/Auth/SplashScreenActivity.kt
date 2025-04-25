@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.guruveda.MainActivity
 import com.example.guruveda.R
 import com.example.guruveda.databinding.ActivitySplashSreenBinding
@@ -34,7 +33,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 finish()
             }
 
-        }, 3000)
+        }, 2000)
      setStatusBar()
     }
     private fun setStatusBar() {

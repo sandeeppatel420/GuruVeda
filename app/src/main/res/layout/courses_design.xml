@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_column="02"
+    android:layout_margin="10dp">
+
+   <GridLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:columnCount="02"
+       android:orientation="vertical"
+       android:layout_marginStart="05dp"
+       android:layout_margin="05dp">
+
+       <ImageView
+          android:id="@+id/couresImage"
+           android:layout_width="180dp"
+           android:layout_height="150dp"
+           android:importantForAccessibility="no"
+           android:src="@drawable/liveimg"
+           android:layout_margin="10dp"
+           android:layout_gravity="center"
+
+           />
+       <TextView
+           android:id="@+id/couresTital"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="coures tital"
+           android:textSize="15sp" />
+      <TextView
+          android:id="@+id/couresDescription"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="coures Description"
+          android:textSize="15sp" />
+
+
+
+       <TextView
+           android:id="@+id/couresPrice"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text=" coures price"
+           android:textSize="15sp" />
+
+   </GridLayout>
+
+</androidx.cardview.widget.CardView>

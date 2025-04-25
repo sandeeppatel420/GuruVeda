@@ -18,10 +18,26 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        if (intent.getBooleanExtra("showMyCourses", false)) {
+            val fragment = CourseFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout_container, fragment)
+                .commit()
+
+        }
+
 
         bottomNav = findViewById(R.id.bottomNav)
         bottomNav.setItemSelected(R.id.home_icon, true)
-        loadFragment(HomeFragment())
+
+        val intent=intent.getStringExtra("Courses")?:""
+        if (intent.isNotEmpty()){
+            loadFragment(CourseFragment())
+        }
+        else
+        {
+            loadFragment(HomeFragment())
+        }
         bottomNav.setOnItemSelectedListener { itemId ->
             val currentFragment = supportFragmentManager.findFragmentById(R.id.frameLayout_container)
 
@@ -57,6 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 
         setStatusBar()
+
     }
 
     private  fun loadFragment(fragment: Fragment) {

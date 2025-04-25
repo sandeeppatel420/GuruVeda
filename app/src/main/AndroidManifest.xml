@@ -7,8 +7,9 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,8 +20,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".Auth.ProfileEditActivity"
+            android:name=".FreeVideoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GuruVeda" />
+        <activity
+            android:name=".VideoPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CourseDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllCoursesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestSeriesDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestSeriesActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

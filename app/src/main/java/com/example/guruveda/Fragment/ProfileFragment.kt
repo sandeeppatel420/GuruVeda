@@ -35,9 +35,9 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding=FragmentProfileBinding.inflate(inflater, container, false)
         val view=binding?.root
-//        binding?.userLogoutText?.setOnClickListener {
-//            logout()
-//        }
+        binding?.userLogoutText?.setOnClickListener {
+            logout()
+        }
 
 
         datalist=ArrayList()
@@ -67,7 +67,7 @@ class ProfileFragment : Fragment() {
 
 
         binding?.progressCircular1?.visibility = View.VISIBLE
-        binding?.progressCircular1?.indeterminateTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.white))
+        binding?.progressCircular1?.indeterminateTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.Red))
 
         binding?.backspace?.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
