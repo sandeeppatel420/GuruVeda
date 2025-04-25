@@ -6,21 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".CourseDetailActivity">
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
-            android:padding="16dp">
+            android:padding="16dp"
+            tools:ignore="ScrollViewSize">
 
             <ImageView
                 android:id="@+id/courseImageDetail"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                android:importantForAccessibility="no"
                 android:scaleType="centerCrop" />
 
             <TextView
@@ -51,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="4dp"/>
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,6 +65,15 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+    <Button
+        android:id="@+id/payButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment"
+        android:backgroundTint="@color/biometric_error_color"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"/>
 
 </LinearLayout>

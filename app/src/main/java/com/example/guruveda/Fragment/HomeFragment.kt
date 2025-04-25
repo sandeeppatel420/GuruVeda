@@ -1,6 +1,5 @@
 package com.example.guruveda.Fragment
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,40 +14,43 @@ import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.guruveda.AllCoursesActivity
+import com.example.guruveda.DoubtActivity
+import com.example.guruveda.FreeVideoActivity
 import com.example.guruveda.R
-import com.example.guruveda.SelectedActivity
-import com.example.guruveda.TestSeriesActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
+import kotlin.jvm.java
 
 
 class HomeFragment : Fragment() {
-    private lateinit var profileIcon:ImageView
-    private lateinit var profileViewModel:GetUserDataViewModel
-    private lateinit var testSeriesTextView:TextView
-    @SuppressLint("MissingInflatedId")
+    private lateinit var profileIcon: ImageView
+    private lateinit var profileViewModel: GetUserDataViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       val view = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView1 = view.findViewById<TextView>(R.id.allCoursesHome)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val textView1 = view.findViewById<TextView>(R.id.allCouresHome)
         textView1.setOnClickListener {
             val intent = Intent(requireContext(), AllCoursesActivity::class.java)
             startActivity(intent)
 
         }
-        testSeriesTextView=view.findViewById(R.id.testSeries_TextView)
-        testSeriesTextView.setOnClickListener {
-            startActivity(Intent(requireContext(), TestSeriesActivity::class.java))
+        val freeVideo = view.findViewById<TextView>(R.id.freeVideoHome)
+        freeVideo.setOnClickListener {
+            val intent = Intent(requireContext(), FreeVideoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val doubts = view.findViewById<TextView>(R.id.doubtHome)
+        doubts.setOnClickListener {
+            val intent = Intent(requireContext(), DoubtActivity::class.java)
+            startActivity(intent)
         }
 
 
 
-
-
-
-        profileViewModel=ViewModelProvider(this)[GetUserDataViewModel::class.java]
-        profileIcon=view.findViewById(R.id.profile_icon_image)
+        profileViewModel = ViewModelProvider(this)[GetUserDataViewModel::class.java]
+        profileIcon = view.findViewById(R.id.profile_icon_image)
         profileViewModel.getUser()
         profileViewModel.users1.observe(viewLifecycleOwner) {
             Glide.with(requireContext())
@@ -65,10 +67,7 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(imageList)
 
 
-        val selectedText=view.findViewById<TextView>(R.id.selected_TextView)
-        selectedText.setOnClickListener {
-         startActivity(Intent(requireContext(),SelectedActivity::class.java))
-        }
+
         return view
     }
 

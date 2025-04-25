@@ -1,4 +1,4 @@
-package com.example.guruveda
+package com.example.guruveda.allAdapter
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.guruveda.CourseDetailActivity
 import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.databinding.CoursesDesignBinding
 
@@ -23,7 +24,6 @@ class AdapterCoures(val context: Context, val list: List<CourseModel>): Recycler
         return CourseViewHolder(binding)
     }
 
-
     override fun getItemCount(): Int {
        return list.size
     }
@@ -32,7 +32,7 @@ class AdapterCoures(val context: Context, val list: List<CourseModel>): Recycler
        val data = list[position]
         holder.couresTital.text = data.courseTitle
         holder.couresDescription.text = data.courseDescription
-        holder.couresPrice.text = data.coursePrice
+        holder.couresPrice.text = "₹ ${data.coursePrice}"
         Glide.with(context).load(data.courseThumbnail).into(holder.couresImage)
         holder.itemView.setOnClickListener {
             val intent = Intent(context, CourseDetailActivity::class.java)
