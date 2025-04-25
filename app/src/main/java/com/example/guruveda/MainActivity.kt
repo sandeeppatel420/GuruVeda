@@ -55,12 +55,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.MyTest_icon -> {
-                    if (currentFragment !is PdfFragment) loadFragment(PdfFragment())
+                    if (currentFragment !is PdfFragment) loadFragment(TestFragment())
                     true
                 }
 
                 R.id.openBook -> {
-                    if (currentFragment !is TestFragment) loadFragment(TestFragment())
+                    if (currentFragment !is TestFragment) loadFragment(PdfFragment())
                     true
                 }
 
