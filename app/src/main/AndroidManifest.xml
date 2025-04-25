@@ -20,8 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
-
-
+        <activity
+            android:name=".DoubtActivity"
+            android:exported="false" />
         <activity
             android:name=".FreeVideoActivity"
             android:exported="false"

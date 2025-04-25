@@ -14,10 +14,11 @@ import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.guruveda.AllCoursesActivity
+import com.example.guruveda.DoubtActivity
 import com.example.guruveda.FreeVideoActivity
 import com.example.guruveda.R
-import com.example.guruveda.SelectedActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
+import kotlin.jvm.java
 
 
 class HomeFragment : Fragment() {
@@ -40,8 +41,11 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-
-
+        val doubts = view.findViewById<TextView>(R.id.doubtHome)
+        doubts.setOnClickListener {
+            val intent = Intent(requireContext(), DoubtActivity::class.java)
+            startActivity(intent)
+        }
 
 
 
@@ -63,10 +67,7 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(imageList)
 
 
-        val selectedText = view.findViewById<TextView>(R.id.selected_TextView)
-        selectedText.setOnClickListener {
-            startActivity(Intent(requireContext(), SelectedActivity::class.java))
-        }
+
         return view
     }
 
