@@ -20,6 +20,7 @@
            android:importantForAccessibility="no"
            android:src="@drawable/liveimg"
            android:layout_margin="10dp"
+           android:layout_gravity="center"
 
            />
        <TextView

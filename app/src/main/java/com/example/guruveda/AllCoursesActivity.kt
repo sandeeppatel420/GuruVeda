@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.ViewModel.AllCouresGet
+import com.example.guruveda.allAdapter.AdapterCoures
 import com.example.guruveda.databinding.ActivityAllCoursesBinding
 
 class AllCoursesActivity : AppCompatActivity() {
@@ -19,7 +20,6 @@ class AllCoursesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAllCoursesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         list = ArrayList()
         adapter = AdapterCoures(this, list)

@@ -20,19 +20,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
-
-        <activity android:name=".VideoPlayerActivity"
+        <activity
+            android:name=".DoubtActivity"
             android:exported="false" />
-        <activity android:name=".CourseDetailActivity"
+        <activity
+            android:name=".FreeVideoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GuruVeda" />
+        <activity
+            android:name=".VideoPlayerActivity"
             android:exported="false" />
-        <activity android:name=".AllCoursesActivity"
+        <activity
+            android:name=".CourseDetailActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".AllCoursesActivity"
+            android:exported="false" />
         <activity
             android:name=".SelectedActivity"
             android:exported="false" />
         <activity
-            android:name=".Auth.ProfileEditActivity"
+            android:name=".TestSeriesDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestSeriesActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
