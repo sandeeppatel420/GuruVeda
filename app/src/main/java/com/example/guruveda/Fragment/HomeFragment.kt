@@ -15,7 +15,6 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.guruveda.AllCoursesActivity
 import com.example.guruveda.R
-import com.example.guruveda.SelectedActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 
 
@@ -57,10 +56,8 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(imageList)
 
 
-        val selectedText=view.findViewById<TextView>(R.id.selected_TextView)
-        selectedText.setOnClickListener {
-         startActivity(Intent(requireContext(),SelectedActivity::class.java))
-        }
+
+
         return view
     }
 

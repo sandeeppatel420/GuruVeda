@@ -39,6 +39,17 @@
             android:layout_marginStart="16dp" />
 
         <ImageView
+            android:id="@+id/down_arrow_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/downarrow1"
+            android:layout_toEndOf="@id/selected_TextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:tint="@color/black"
+            tools:ignore="UseAppTint" />
+
+        <ImageView
             android:id="@+id/notification_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
