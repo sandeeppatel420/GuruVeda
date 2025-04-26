@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     id("com.android.application")
     alias(libs.plugins.kotlin.android)
@@ -28,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
    buildFeatures{
        viewBinding = true
@@ -53,6 +55,8 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.firestore)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -61,8 +65,11 @@ dependencies {
 
     implementation ("androidx.media3:media3-exoplayer:1.3.1")
     implementation ("androidx.media3:media3-ui:1.3.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
 
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation ("com.razorpay:checkout:1.6.33")
+
+    implementation ("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
 
 }

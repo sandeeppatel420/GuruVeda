@@ -39,6 +39,17 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/down_arrow_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/downarrow1"
+            android:layout_toEndOf="@id/selected_TextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:tint="@color/black"
+            tools:ignore="UseAppTint" />
+
+        <ImageView
             android:id="@+id/notification_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -97,106 +108,138 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="3"
         android:layout_marginTop="15dp"
+        android:columnCount="3"
+        android:padding="8dp"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true"
         android:gravity="center">
 
         <TextView
-            android:id="@+id/allCoursesHome"
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="5dp"
-            android:background="#43A07040"
+            android:id="@+id/allCouresHome"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/image19"
             android:drawablePadding="8dp"
-            android:gravity="center"
-            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
             android:text="All Courses"
-            tools:ignore="RtlSymmetry" />
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#43A07040"/>
 
         <TextView
-            android:id="@+id/testSeries_TextView"
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:background="#43FDE000"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/test20"
-            android:drawablePadding="2dp"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:text="Test\nSeries" />
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="Test\nSeries"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#43FDE000"/>
 
         <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="#76FDD500"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/quize4"
             android:drawablePadding="8dp"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:text="Test\nSeries" />
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text=" Quiz\n"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#76FDD500"/>
 
         <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="5dp"
-            android:background="#8C60FD00"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/liveimg"
             android:drawablePadding="8dp"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:text="Live\nBatches" />
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="Live\nBatches"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#8C60FD00"/>
 
         <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:background="#6EFD4400"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/recorded3"
             android:drawablePadding="8dp"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:text="Recorded\n Batches" />
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="Recorded\nBatches"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#3AFD4400"/>
 
         <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="#47FDCA00"
+            android:id="@+id/freeVideoHome"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/free6"
             android:drawablePadding="8dp"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:text="Free Video" />
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="Free Video"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#47FDCA00"/>
 
         <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="#76FDDA00"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/download"
-            android:drawablePadding="1dp"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:text="Downloads" />
+            android:drawablePadding="2dp"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="Downloads"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#76FDDA00"/>
 
         <TextView
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="#4CB1FD00"
+            android:id="@+id/doubtHome"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_box"
             android:drawableLeft="@drawable/dout6"
             android:drawablePadding="8dp"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:text="Doubt" />
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="Doubt"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:backgroundTint="#4CB1FD00"/>
+
     </GridLayout>
+
 
     <TextView
         android:layout_width="match_parent"
@@ -213,10 +256,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <VideoView
-                android:layout_width="200dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="10dp" />
+
+
         </LinearLayout>
     </HorizontalScrollView>
 </LinearLayout>

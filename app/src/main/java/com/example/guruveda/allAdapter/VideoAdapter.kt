@@ -1,14 +1,14 @@
-package com.example.guruveda
+package com.example.guruveda.allAdapter
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.guruveda.CourseDetailActivity
 import com.example.guruveda.DataModel.VideoModel
-import com.example.guruveda.ViewModel.VideoGetViewModel
+import com.example.guruveda.VideoPlayerActivity
 import com.example.guruveda.databinding.VideoItemBinding
 
 class VideoAdapter(val context: Context, private val list: List<VideoModel>): RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {
@@ -19,12 +19,12 @@ class VideoAdapter(val context: Context, private val list: List<VideoModel>): Re
         val videoType = binding.videoType
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoAdapter.VideoViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
        val binding = VideoItemBinding.inflate(LayoutInflater.from(context),parent,false)
         return VideoViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: VideoAdapter.VideoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: VideoViewHolder, position: Int) {
        val data = list[position]
         holder.videoTitle.text = data.title
         holder.videoDuration.text = data.duration
@@ -44,7 +44,11 @@ class VideoAdapter(val context: Context, private val list: List<VideoModel>): Re
         }
 
 
+
         }
+
+
+
 
 
 

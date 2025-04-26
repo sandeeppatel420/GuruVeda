@@ -24,4 +24,30 @@ class AllCouresGet:ViewModel(){
            Log.e("FirestoreViewModel", "Error getting document", it)
        }
    }
+    val myCoursesLiveData = MutableLiveData<List<CourseModel>>()
+    fun getMyCourses(userId: String) {
+        firestore.collection("users")
+            .document(userId)
+            .collection("myCourses")
+            .get()
+            .addOnSuccessListener { documents ->
+                val courseList = ArrayList<CourseModel>()
+                val courseIds = documents.mapNotNull { it.getString("courseId") }
+
+                firestore.collection("courses")
+                    .whereIn("courseId", courseIds)
+                    .get()
+                    .addOnSuccessListener { courseDocs ->
+                        for (doc in courseDocs.documents) {
+                            val course = doc.toObject(CourseModel::class.java)
+                            course?.let { courseList.add(it) }
+                        }
+                        myCoursesLiveData.value = courseList
+                    }
+            }
+            .addOnFailureListener {
+                Log.e("MyCourses", "Failed to load my courses", it)
+            }
+    }
+
 }

@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".Fragment.PdfFragment">
 
-    <Button
-        android:id="@+id/addBtn2"
+    <TextView
+        android:id="@+id/pdf_all"
         android:layout_width="wrap_content"
-        android:text="addBtn1"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:text="All Pdf"
+        android:textSize="20sp"
+        android:fontFamily="@font/libre_baskerville_bold"
+        android:textStyle="bold"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/Red"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pdf_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/pdf_item"
+        android:layout_marginHorizontal="10dp"
+        android:layout_below="@id/pdf_all"
+        tools:itemCount="1"/>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+</RelativeLayout>
