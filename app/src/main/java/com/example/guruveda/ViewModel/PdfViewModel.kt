@@ -33,7 +33,7 @@ class PdfViewModel:ViewModel() {
                         .await()
                 }
                 val list = snapshot.map { it.toObject(PdfModel::class.java) }
-                _pdfList.value = list3
+                _pdfList.value = list
             }
             catch (e: Exception) {
                _errorMessage.value="Failed to load PDFs. Check your internet connection."
