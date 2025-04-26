@@ -18,7 +18,7 @@ import com.example.guruveda.allAdapter.QuestionAdapter
 import com.example.guruveda.allAdapter.QuestionAnswerListener
 import com.google.android.material.appbar.MaterialToolbar
 
-class TestSeriesDetailsActivity : AppCompatActivity(), QuestionAnswerListener {
+class TestSeriesDetailsActivity: AppCompatActivity(), QuestionAnswerListener {
 
     private lateinit var imageView: ImageView
     private lateinit var subjectTextView: TextView
@@ -37,7 +37,7 @@ class TestSeriesDetailsActivity : AppCompatActivity(), QuestionAnswerListener {
     @SuppressLint("CheckResult", "MissingInflatedId", "NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_texst_series_detail)
+        setContentView(R.layout.activity_test_series_detail)
 
         imageView = findViewById(R.id.details_image)
         subjectTextView = findViewById(R.id.details_subject)
