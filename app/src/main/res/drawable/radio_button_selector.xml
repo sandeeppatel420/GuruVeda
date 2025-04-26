@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Jab selected hai -->
+    <item android:state_checked="true" android:color="#4CAF50"/> <!-- Green color -->
+
+    <!-- Jab unselected hai -->
+    <item android:state_checked="false" android:color="#9E9E9E"/> <!-- Grey color -->
+</selector>

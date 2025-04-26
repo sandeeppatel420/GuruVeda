@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:background="#F5F5F5"
     tools:context=".AnswerDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:elevation="4dp"
         android:orientation="vertical"
+        android:padding="16dp"
         tools:ignore="MissingConstraints">
+
 
         <ImageView
             android:id="@+id/answerDetails_ImageView"
@@ -31,40 +35,42 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Subject: Physics"
-            android:textColor="#000000"
+            android:textColor="#212121"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
 
-        <!-- Title -->
         <TextView
             android:id="@+id/answerTitleDetail_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Title: Motion Test"
-            android:textColor="#444444"
-            android:textSize="18sp" />
+            android:textColor="#757575"
+            android:textSize="18sp"
+            tools:ignore="MissingConstraints" />
 
-        <!-- Description -->
+
         <TextView
             android:id="@+id/answerDescriptionDetail_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Description: This is a test on motion chapter"
-            android:textColor="#555555"
-            android:textSize="16sp" />
+            android:textColor="#616161"
+            android:textSize="16sp"
+            tools:ignore="MissingConstraints" />
 
-        <!-- Duration -->
+
         <TextView
             android:id="@+id/answerDurationDetail_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="Duration: 45 minutes"
-            android:textColor="#555555"
-            android:textSize="16sp" />
-
+            android:textColor="#616161"
+            android:textSize="16sp"
+            tools:ignore="MissingConstraints" />
         <TextView
             android:id="@+id/answersTextView"
             android:layout_width="match_parent"
@@ -72,12 +78,12 @@
             android:text="Answers will be shown here"
             android:textSize="16sp"
             android:textColor="@android:color/black"
-            android:paddingTop="16dp"/>
-
+            android:paddingTop="16dp"
+            android:padding="12dp"
+            android:background="@drawable/answer_background" />
     </LinearLayout>
 
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
