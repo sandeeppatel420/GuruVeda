@@ -70,5 +70,6 @@ dependencies {
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("com.razorpay:checkout:1.6.33")
 
-    implementation ("com.github.TomLeCollegue:ProgressBar-Library-Android-Kotlin:0.1.1")
+    implementation ("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
+
 }

@@ -2,6 +2,7 @@ package com.example.guruveda
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,21 +23,24 @@ class TestSeriesActivity : AppCompatActivity() {
     private lateinit var adapter: TestSeriesAdapter
     private val testSeriesList = ArrayList<TestSeriesDataModal>()
     private lateinit var testSeriesViewModel: TestSeriesViewModel
+    private lateinit var arrowBack: ImageView
 
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint("NotifyDataSetChanged", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_series)
 
         myRecyclerView = findViewById(R.id.recyclerView)
+        arrowBack = findViewById(R.id.arrowBack)
+        arrowBack.setOnClickListener {
+            onBackPressed()
+        }
         myRecyclerView.layoutManager =
             GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false)
         adapter = TestSeriesAdapter(testSeriesList)
         myRecyclerView.adapter = adapter
         testSeriesViewModel = ViewModelProvider(this).get(TestSeriesViewModel::class.java)
-
         testSeriesViewModel.fetchTestSeriesData()
-
         testSeriesViewModel.testSeriesList.observe(this) {
             testSeriesList.clear()
             testSeriesList.addAll(it)
