@@ -25,6 +25,9 @@
             android:name=".DoubtActivity"
             android:exported="false" />
         <activity
+            android:name=".PdfViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".FreeVideoActivity"
             android:exported="false"
             android:theme="@style/Theme.GuruVeda" />
