@@ -39,7 +39,22 @@ class MainActivity : AppCompatActivity() {
 //            loadFragment(HomeFragment())
 //        }
 
-        loadFragment(HomeFragment())
+        val selectedCourse = intent.getStringExtra("courses")
+        val freeVideo = intent.getStringExtra("freeVideo")
+
+        val homeFragment = HomeFragment()
+        val bundle = Bundle()
+        bundle.putString("courses", selectedCourse)
+        bundle.putString("freeVideo", freeVideo)
+        homeFragment.arguments = bundle
+
+        if (intent.getBooleanExtra("showMyCourses", false)) {
+            loadFragment(CourseFragment())
+            bottomNav.setItemSelected(R.id.course, true)
+        } else {
+            loadFragment(homeFragment)
+            bottomNav.setItemSelected(R.id.home_icon, true)
+        }
         bottomNav.setOnItemSelectedListener { itemId ->
             val currentFragment = supportFragmentManager.findFragmentById(R.id.frameLayout_container)
 

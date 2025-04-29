@@ -21,6 +21,9 @@
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
         <activity
+            android:name=".View.SelectCoursesActivity"
+            android:exported="false" />
+        <activity
             android:name=".DoubtActivity"
             android:exported="false" />
         <activity
@@ -35,10 +38,10 @@
             android:exported="false" />
         <activity
             android:name=".AllCoursesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SelectedActivity"
-            android:exported="false" />
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".SelectedActivity" -->
+        <!-- android:exported="false" -->
+        <!-- tools:ignore="MissingClass" /> -->
         <activity
             android:name=".TestSeriesDetailsActivity"
             android:exported="false" />
