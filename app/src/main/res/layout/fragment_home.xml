@@ -218,7 +218,7 @@
             android:drawablePadding="2dp"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="Downloads"
+            android:text="Download"
             android:textColor="#000"
             android:textStyle="bold"
             android:backgroundTint="#76FDDA00"/>

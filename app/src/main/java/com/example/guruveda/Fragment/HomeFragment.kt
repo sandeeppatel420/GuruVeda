@@ -76,6 +76,7 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(imageList)
 
 
+        val selectedText = view.findViewById<TextView>(R.id.selected_TextView)
 
         return view
     }

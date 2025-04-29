@@ -2,9 +2,12 @@ package com.example.guruveda.Fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -21,7 +24,10 @@ class PdfFragment : Fragment() {
     private lateinit var pdfList:ArrayList<PdfModel>
     private lateinit var myPdfRecyclerView: RecyclerView
     private lateinit var pdfViewModel: PdfViewModel
+    private lateinit var fullPdfList: ArrayList<PdfModel>
+
     @SuppressLint("MissingInflatedId", "NotifyDataSetChanged")
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +47,7 @@ class PdfFragment : Fragment() {
         pdfViewModel.pdfList.observe(viewLifecycleOwner) { list ->
             pdfList.clear()
             pdfList.addAll(list)
+            fullPdfList=ArrayList(list)
             myPdfAdapter.notifyDataSetChanged()
         }
 
@@ -60,6 +67,25 @@ class PdfFragment : Fragment() {
         }
         pdfViewModel.fetchPdfData()
 
+
+
+
+        val searchEditText=myView.findViewById<EditText>(R.id.search_EditText)
+        searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val query = s.toString().lowercase().trim()
+
+                val filteredList = fullPdfList.filter {
+                    it.pdfTitle?.lowercase()?.contains(query) == true
+                }
+
+                myPdfAdapter.updateList(filteredList)
+            }
+        })
         return myView
     }
 
