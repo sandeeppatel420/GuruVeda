@@ -40,6 +40,9 @@
             android:name=".AllCoursesActivity"
             android:exported="false" />
         <activity
+            android:name=".Auth.ProfileEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".TestSeriesDetailsActivity"
             android:exported="false" />
         <activity

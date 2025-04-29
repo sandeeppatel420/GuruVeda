@@ -24,16 +24,15 @@ class QuestionViewModel : ViewModel() {
     }
 
     fun updateSelectedAnswer(questionId: String, selectedAnswer: String) {
-        // Get current list
-        val currentList = questionList.value?.toMutableList() ?: return
-
-        // Find and update selected answer
+        val currentList = questionList.value?.toMutableList() ?: mutableListOf()
         val index = currentList.indexOfFirst { it.questionId == questionId }
-        if (index != -1) {
+        if (index != 1) {
             val updatedQuestion = currentList[index].copy(selectedAnswer = selectedAnswer)
             currentList[index] = updatedQuestion
             questionList.value = currentList
         }
+
+
 
     }
 
