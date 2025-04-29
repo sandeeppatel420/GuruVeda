@@ -2,7 +2,6 @@ package com.example.guruveda
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +31,7 @@ class AnswerDetailsActivity : AppCompatActivity() {
         val description = intent.getStringExtra("description")
         val duration = intent.getStringExtra("duration")
         val imageUrl = intent.getStringExtra("imageUrl")
-        val selectedAnswer = intent.getStringExtra("selectedAnswer")
+        val receivedAnswers = intent.getStringExtra("selectedAnswer")
 
 
 
@@ -40,7 +39,7 @@ class AnswerDetailsActivity : AppCompatActivity() {
         answerTitleTextView.text = title
         answerDescriptionTextView.text = description
         answerDurationTextView.text = duration
-        answerAnswersTextView.text = selectedAnswer
+        answerAnswersTextView.text = receivedAnswers
         Glide.with(this).load(imageUrl).placeholder(R.drawable.ic_launcher_foreground).error(R.drawable.edit_24).into(answerImageView)
 
 

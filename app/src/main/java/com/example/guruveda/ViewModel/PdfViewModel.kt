@@ -23,7 +23,7 @@ class PdfViewModel:ViewModel() {
     val errorMessage: LiveData<String> get() = _errorMessage
 
     fun fetchPdfData() {
-        viewModelScope.launch {
+      viewModelScope.launch {
             _isLoading.value = true
             try {
                 val snapshot = withContext(Dispatchers.IO) {

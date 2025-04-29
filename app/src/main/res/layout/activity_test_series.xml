@@ -7,35 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".TestSeriesActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toobar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/healthTextColor">
+                <ImageView
+                    android:id="@+id/arrowBack"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/arrow"
+                    tools:ignore="ContentDescription" />
+            </androidx.appcompat.widget.Toolbar>
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/healthTextColor">
 
-            <ImageView
-                android:id="@+id/arrowBack"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:src="@drawable/arrow"
-                tools:ignore="ContentDescription" />
-        </androidx.appcompat.widget.Toolbar>
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/test_series_layout"
+                android:layout_below="@id/toobar1"
+                />
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:scrollbars="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            tools:listitem="@layout/test_series_layout" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:layout_gravity="center" />
+    </RelativeLayout>
 
-    </LinearLayout>
-</RelativeLayout>
+

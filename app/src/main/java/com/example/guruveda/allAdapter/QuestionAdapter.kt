@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.TextView
+import androidx.compose.ui.test.isSelected
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guruveda.DataModel.TestQuestionModel
 import com.example.guruveda.R
@@ -57,14 +58,14 @@ class QuestionAdapter(
                     rb.isChecked = false
                     lastCheckedButton = null
                     selectedAnswers.removeAll { it.first == "Q$position" }
-                    questionAnswerListener.onAnswerSelected(question.questionId ?: "", "", position) // Send empty answer
+                    questionAnswerListener.onAnswerSelected(question.questionId ?: "", "", position, false) // Send empty answer
                 } else {
                     radioButton.forEach { it.isChecked = false }
                     rb.isChecked = true
                     lastCheckedButton = rb
                     selectedAnswers.removeAll { it.first == "Q$position" }
                     selectedAnswers.add(Pair("Q$position", rb.text.toString()))
-                    questionAnswerListener.onAnswerSelected(question.questionId ?: "", rb.text.toString(), position)
+                    questionAnswerListener.onAnswerSelected(question.questionId ?: "", rb.text.toString(), position, true)
                 }
             }
         }
@@ -72,5 +73,5 @@ class QuestionAdapter(
 
 }
 interface QuestionAnswerListener {
-    fun onAnswerSelected(questionId: String, answer: String, index: Int)
+    fun onAnswerSelected(questionId: String, answer: String, index: Int, isSelected: Boolean)
 }
