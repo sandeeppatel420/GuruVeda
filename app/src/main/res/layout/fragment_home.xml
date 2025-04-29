@@ -132,6 +132,7 @@
             android:backgroundTint="#43A07040"/>
 
         <TextView
+            android:id="@+id/testSeriesHome"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_columnWeight="1"

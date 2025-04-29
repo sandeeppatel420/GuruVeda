@@ -2,6 +2,7 @@ import org.gradle.kotlin.dsl.implementation
 
 plugins {
     id("com.android.application")
+    id ("kotlin-parcelize")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
 }
@@ -57,6 +58,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.ui.test.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,5 +71,7 @@ dependencies {
 
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("com.razorpay:checkout:1.6.33")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation ("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
 
 }

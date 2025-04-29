@@ -2,6 +2,10 @@ package com.example.guruveda
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,25 +26,42 @@ class TestSeriesActivity : AppCompatActivity() {
     private lateinit var adapter: TestSeriesAdapter
     private val testSeriesList = ArrayList<TestSeriesDataModal>()
     private lateinit var testSeriesViewModel: TestSeriesViewModel
-
-    @SuppressLint("NotifyDataSetChanged")
+    private lateinit var arrowBack: ImageView
+  private lateinit var progressBar: ProgressBar
+    @SuppressLint("NotifyDataSetChanged", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_series)
 
         myRecyclerView = findViewById(R.id.recyclerView)
+        arrowBack = findViewById(R.id.arrowBack)
+        arrowBack.setOnClickListener {
+            onBackPressed()
+        }
         myRecyclerView.layoutManager =
             GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false)
         adapter = TestSeriesAdapter(testSeriesList)
         myRecyclerView.adapter = adapter
         testSeriesViewModel = ViewModelProvider(this).get(TestSeriesViewModel::class.java)
-
         testSeriesViewModel.fetchTestSeriesData()
 
         testSeriesViewModel.testSeriesList.observe(this) {
             testSeriesList.clear()
             testSeriesList.addAll(it)
             adapter.notifyDataSetChanged()
+        }
+
+        progressBar = findViewById(R.id.progressBar1)
+        testSeriesViewModel.isLoading.observe(this) { isLoading ->
+            if (isLoading){
+                progressBar.visibility = View.VISIBLE
+            }
+            else{
+                progressBar.visibility = View.GONE
+            }
+        }
+        testSeriesViewModel.errorMessage.observe(this) { errorMessage ->
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
         }
 
 
