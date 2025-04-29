@@ -64,10 +64,10 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
-        imageSlider
-            .setImageList(imageList)
+        imageSlider.setImageList(imageList)
 
 
+        val selectedText = view.findViewById<TextView>(R.id.selected_TextView)
 
         return view
     }
