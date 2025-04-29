@@ -11,4 +11,6 @@
     <color name="backgroundColor3">#1f41bb</color>
     <color name="black2">#252B48</color>
     <color name="Red">#ED0D53</color>
+    <color name="light_gray">#04D3D3D3</color>
+    <color name="light_green">#90ee90</color>
 </resources>

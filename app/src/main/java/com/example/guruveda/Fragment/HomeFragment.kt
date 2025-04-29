@@ -17,7 +17,6 @@ import com.example.guruveda.AllCoursesActivity
 import com.example.guruveda.DoubtActivity
 import com.example.guruveda.FreeVideoActivity
 import com.example.guruveda.R
-import com.example.guruveda.SelectedActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import kotlin.jvm.java
 
@@ -69,9 +68,7 @@ class HomeFragment : Fragment() {
 
 
         val selectedText = view.findViewById<TextView>(R.id.selected_TextView)
-        selectedText.setOnClickListener {
-            startActivity(Intent(requireContext(), SelectedActivity::class.java))
-        }
+
         return view
     }
 
