@@ -1,5 +1,6 @@
 package com.example.guruveda.allAdapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -15,10 +16,11 @@ class AdapterCoures(val context: Context, val list: List<CourseModel>): Recycler
     class CourseViewHolder(val binding: CoursesDesignBinding) : RecyclerView.ViewHolder(binding.root){
        val couresImage = binding.couresImage
         val couresTital = binding.couresTital
-        val couresDescription = binding.couresDescription
+//        val couresDescription = binding.couresDescription
         val couresPrice = binding.couresPrice
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder {
       val  binding = CoursesDesignBinding.inflate(LayoutInflater.from(context),parent,false)
         return CourseViewHolder(binding)
@@ -31,7 +33,7 @@ class AdapterCoures(val context: Context, val list: List<CourseModel>): Recycler
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
        val data = list[position]
         holder.couresTital.text = data.courseTitle
-        holder.couresDescription.text = data.courseDescription
+//        holder.couresDescription.text = data.courseDescription
         holder.couresPrice.text = "₹ ${data.coursePrice}"
         Glide.with(context).load(data.courseThumbnail).into(holder.couresImage)
         holder.itemView.setOnClickListener {
