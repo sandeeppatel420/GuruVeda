@@ -3,12 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".Fragment.CourseFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:elevation="4dp"
+        android:titleTextColor="@color/white"
+        app:title="My Courses"
+        android:padding="8dp"
+        android:layout_marginTop="5dp">
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myCoursesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:nestedScrollingEnabled="false"
+        tools:listitem="@layout/courses_design"
+       />
+
 </LinearLayout>

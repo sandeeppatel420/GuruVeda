@@ -1,5 +1,6 @@
 package com.example.guruveda.allAdapter
 
+import android.R
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -7,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.guruveda.CourseDetailActivity
+import com.example.guruveda.CouresActivity.CourseDetailActivity
 import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.databinding.CoursesDesignBinding
 
@@ -35,7 +36,12 @@ class AdapterCoures(val context: Context, val list: List<CourseModel>): Recycler
         holder.couresTital.text = data.courseTitle
 //        holder.couresDescription.text = data.courseDescription
         holder.couresPrice.text = "₹ ${data.coursePrice}"
-        Glide.with(context).load(data.courseThumbnail).into(holder.couresImage)
+        Glide.with(context)
+            .load(data.courseThumbnail)
+            .placeholder(R.drawable.ic_menu_gallery)
+            .error(R.drawable.presence_video_away)
+            .into(holder.couresImage)
+
         holder.itemView.setOnClickListener {
             val intent = Intent(context, CourseDetailActivity::class.java)
             intent.putExtra("description", "Description : ${data.courseDescription}")

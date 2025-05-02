@@ -1,4 +1,4 @@
-package com.example.guruveda
+package com.example.guruveda.CouresActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.guruveda.DataModel.VideoModel
+import com.example.guruveda.MainActivity
 import com.example.guruveda.ViewModel.VideoGetViewModel
 import com.example.guruveda.allAdapter.VideoAdapter
 import com.example.guruveda.databinding.ActivityCourseDetailBinding

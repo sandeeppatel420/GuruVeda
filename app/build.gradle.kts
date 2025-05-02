@@ -63,12 +63,14 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
+    implementation ("com.google.android.gms:play-services-auth:20.7.0")
+
     implementation ("androidx.media3:media3-exoplayer:1.3.1")
     implementation ("androidx.media3:media3-ui:1.3.1")
 
-
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("com.razorpay:checkout:1.6.33")
-    implementation ("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
     implementation ("com.github.TomLeCollegue:ProgressBar-Library-Android-Kotlin:0.1.1")
+    implementation ("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
+
 }

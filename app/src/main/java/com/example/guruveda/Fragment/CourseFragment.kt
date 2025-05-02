@@ -31,7 +31,7 @@ class CourseFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
-viewModel = ViewModelProvider(this)[AllCouresGet::class.java]
+        viewModel = ViewModelProvider(this)[AllCouresGet::class.java]
         viewModel.myCoursesLiveData.observe (viewLifecycleOwner){
             courseList.clear()
             courseList.addAll(it)

@@ -27,7 +27,7 @@ class DoubtViewModel: ViewModel() {
                         userId = auth.currentUser?.uid
                     )
 
-                    db.collection("doubts").add(doubt)
+                    db.collection("doubt").add(doubt)
                         .addOnSuccessListener {
 
                             doubtList.add(doubt)
@@ -39,13 +39,13 @@ class DoubtViewModel: ViewModel() {
                 onResult(false)
             }
         } else {
-            // Agar image nahi hai
+
             val doubt = DoubtModel(
                 subjectName = subjectName,
                 doubtMessage = doubtMessage,
                 imageUrl = ""
             )
-            db.collection("=doubts").add(doubt)
+            db.collection("doubts").add(doubt)
                 .addOnSuccessListener {
                     doubtList.add(doubt)
                     onResult(true)

@@ -22,29 +22,35 @@
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
         <activity
-            android:name=".DoubtActivity"
+            android:name=".CouresActivity.MyCouresDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".PdfViewActivity"
+            android:name=".DoubtActivity.DoubtActivity"
             android:exported="false" />
         <activity
-            android:name=".FreeVideoActivity"
+            android:name=".PdfActivity.PdfViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllVideoActivity.FreeVideoActivity"
             android:exported="false"
             android:theme="@style/Theme.GuruVeda" />
         <activity
-            android:name=".VideoPlayerActivity"
+            android:name=".AllTestActivity.AnswerDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".CourseDetailActivity"
+            android:name=".AllVideoActivity.VideoPlayerActivity"
             android:exported="false" />
         <activity
-            android:name=".AllCoursesActivity"
+            android:name=".CouresActivity.CourseDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".TestSeriesDetailsActivity"
+            android:name=".CouresActivity.AllCoursesActivity"
             android:exported="false" />
         <activity
-            android:name=".TestSeriesActivity"
+            android:name=".AllTestActivity.TestSeriesDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllTestActivity.TestSeriesActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -54,6 +60,9 @@
             android:exported="false" />
         <activity
             android:name=".Auth.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.ProfileEditActivity"
             android:exported="false" />
         <activity
             android:name=".Auth.SplashScreenActivity"

@@ -13,10 +13,11 @@ import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
-import com.example.guruveda.AllCoursesActivity
-import com.example.guruveda.DoubtActivity
-import com.example.guruveda.FreeVideoActivity
+import com.example.guruveda.CouresActivity.AllCoursesActivity
+import com.example.guruveda.DoubtActivity.DoubtActivity
+import com.example.guruveda.AllVideoActivity.FreeVideoActivity
 import com.example.guruveda.R
+import com.example.guruveda.AllTestActivity.TestSeriesActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import kotlin.jvm.java
 
@@ -68,6 +69,14 @@ class HomeFragment : Fragment() {
 
 
         val selectedText = view.findViewById<TextView>(R.id.selected_TextView)
+
+        val textView11 = view.findViewById<TextView>(R.id.testSeriesHome)
+        textView11.setOnClickListener {
+           val intent = Intent(requireContext(), TestSeriesActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
         return view
     }

@@ -1,4 +1,4 @@
-package com.example.guruveda
+package com.example.guruveda.AllVideoActivity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -9,7 +9,6 @@ import com.example.guruveda.DataModel.VideoModel
 import com.example.guruveda.ViewModel.FreeVideoGet
 import com.example.guruveda.allAdapter.VideoAdapter
 import com.example.guruveda.databinding.ActivityFreeVideo2Binding
-
 
 class FreeVideoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFreeVideo2Binding

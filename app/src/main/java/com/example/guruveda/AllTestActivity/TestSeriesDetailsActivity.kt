@@ -1,4 +1,4 @@
-package com.example.guruveda
+package com.example.guruveda.AllTestActivity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,11 +8,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.guruveda.DataModel.TestQuestionModel
+import com.example.guruveda.R
 import com.example.guruveda.ViewModel.QuestionViewModel
 import com.example.guruveda.allAdapter.QuestionAdapter
 import com.example.guruveda.allAdapter.QuestionAnswerListener
@@ -26,7 +28,7 @@ class TestSeriesDetailsActivity: AppCompatActivity(), QuestionAnswerListener {
     private lateinit var descriptionTextView: TextView
     private lateinit var durationTextView: TextView
     private lateinit var questionRecyclerView: RecyclerView
-    private lateinit var submitButton: androidx.appcompat.widget.AppCompatButton
+    private lateinit var submitButton: AppCompatButton
     private lateinit var questionAdapter: QuestionAdapter
     private lateinit var questionList: ArrayList<TestQuestionModel>
     private val questionViewModel: QuestionViewModel by viewModels()

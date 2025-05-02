@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/course"
-        android:title="course"
+        android:title="My course"
         app:cnb_iconColor="#FFFFFF"
         android:icon="@drawable/course"
         />

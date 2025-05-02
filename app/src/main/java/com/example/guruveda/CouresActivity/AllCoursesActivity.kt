@@ -1,4 +1,5 @@
-package com.example.guruveda
+package com.example.guruveda.CouresActivity
+
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.ViewModel.AllCouresGet
 import com.example.guruveda.allAdapter.AdapterCoures
 import com.example.guruveda.databinding.ActivityAllCoursesBinding
+import kotlin.jvm.java
 
 class AllCoursesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAllCoursesBinding

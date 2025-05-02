@@ -9,6 +9,7 @@ import com.example.guruveda.Fragment.HomeFragment
 import com.example.guruveda.Fragment.PdfFragment
 import com.example.guruveda.Fragment.ProfileFragment
 import com.example.guruveda.Fragment.TestFragment
+import com.google.firebase.FirebaseApp
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        FirebaseApp.initializeApp(this)
+
 
         if (intent.getBooleanExtra("showMyCourses", false)) {
             val fragment = CourseFragment()
