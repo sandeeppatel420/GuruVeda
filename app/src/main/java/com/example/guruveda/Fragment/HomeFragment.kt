@@ -1,6 +1,5 @@
 package com.example.guruveda.Fragment
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +17,6 @@ import com.example.guruveda.AllCoursesActivity
 import com.example.guruveda.DoubtActivity
 import com.example.guruveda.FreeVideoActivity
 import com.example.guruveda.R
-import com.example.guruveda.TestSeriesActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import kotlin.jvm.java
 
@@ -26,8 +24,6 @@ import kotlin.jvm.java
 class HomeFragment : Fragment() {
     private lateinit var profileIcon: ImageView
     private lateinit var profileViewModel: GetUserDataViewModel
-    private lateinit var testSeries: TextView
-    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,11 +46,6 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), DoubtActivity::class.java)
             startActivity(intent)
         }
-        testSeries = view.findViewById(R.id.testSeriesHome)
-        testSeries.setOnClickListener {
-            val intent = Intent(requireContext(), TestSeriesActivity::class.java)
-            startActivity(intent)
-        }
 
 
 
@@ -73,10 +64,10 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
         imageList.add(SlideModel(R.drawable.sildeimg_2, ScaleTypes.FIT))
-        imageSlider.setImageList(imageList)
+        imageSlider
+            .setImageList(imageList)
 
 
-        val selectedText = view.findViewById<TextView>(R.id.selected_TextView)
 
         return view
     }

@@ -9,7 +9,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.github.barteksc.pdfviewer.PDFView
 
 import com.google.firebase.storage.FirebaseStorage
 
