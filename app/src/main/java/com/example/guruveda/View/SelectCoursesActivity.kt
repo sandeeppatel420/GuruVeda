@@ -30,10 +30,31 @@ class SelectCoursesActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("courses", "Flutter")
             intent.putExtra("freeVideo", "Free")
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            finish()
 
         }
+        mySqlCardView.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("courses", "Android")
+            intent.putExtra("freeVideo", "Free")
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
 
+        }
+        kotlinCardView.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("courses", "Kotlin")
+            intent.putExtra("freeVideo", "Free")
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
+        javaCardView.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("courses", "Java")
+            intent.putExtra("freeVideo", "Free")
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
     }
 }
