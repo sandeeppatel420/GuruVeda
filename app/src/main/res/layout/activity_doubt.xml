@@ -2,12 +2,10 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="16dp"
-    tools:context=".DoubtActivity">
+    android:background="@drawable/gradient_bg"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,118 +13,114 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-
-        <LinearLayout
+        <!-- Card View for Header -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/rounded_box"
-            android:padding="16dp"
-            android:gravity="center_vertical">
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginTop="8dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Submit Your Doubt!"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Reach out to us get your question answered."
-                    android:textColor="#666666"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp"/>
+                    <TextView
+                        android:text="Submit Your Doubt!"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📞 95466566..."
-                    android:textColor="#666666"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:text="Reach out to us to get your question answered."
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="✉️ enquiry@guruveda.com"
-                    android:textColor="#666666"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp"/>
+                    <TextView
+                        android:text="📞 95466566..."
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="✉️ enquiry@guruveda.com"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="Support Image" />
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="8dp"
-                android:contentDescription="Enquiry Image" />
-        </LinearLayout>
-
-
-        <com.tomlecollegue.progressbars.CircleProgressView
-            android:id="@+id/circleProgressView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="24dp"
-            app:colorBackground="#EEEEEE"
-            app:colorProgress="@color/light_green"
-            app:defaultValue="0"
-            app:strokeWidth="10dp"
-            android:visibility="gone" />
-
-
+        <!-- Spinner -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Doubt Subject Name"
-            android:textColor="#000000"
             android:textSize="16sp"
-            android:layout_marginTop="24dp"/>
+            android:textColor="#000000"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Spinner
             android:id="@+id/enquiryTypeSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/spinner_background" />
+            android:background="@drawable/spinner_background"
+            android:layout_marginTop="8dp" />
 
-
+        <!-- EditText for Doubt -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Doubt in words (max 255 words)"
-            android:textColor="#000000"
             android:textSize="16sp"
-            android:layout_marginTop="24dp" />
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/doubtMessage"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="Write your message here..."
-            android:background="@drawable/rounded_edittext"
             android:gravity="top|start"
+            android:background="@drawable/rounded_edittext"
             android:padding="12dp"
-            android:layout_marginTop="8dp"
-            android:maxLines="10" />
+            android:maxLines="10"
+            android:layout_marginTop="8dp" />
 
         <!-- Upload Section -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="OR"
+            android:textColor="#888888"
             android:textAlignment="center"
             android:textSize="14sp"
-            android:textColor="#888888"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/uploadFileImage"
@@ -134,28 +128,27 @@
             android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:layout_marginTop="8dp"
-            android:visibility="gone"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/uploadFileButton"
+            android:text="Upload a File"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Upload a File"
-            android:layout_marginTop="8dp"
-            android:padding="12dp"
             android:background="@drawable/outline_button"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:padding="12dp"
+            android:layout_marginTop="8dp" />
 
         <Button
             android:id="@+id/submitDoubtButton"
+            android:text="Submit Doubt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit Doubt"
-            android:layout_marginTop="20dp"
-            android:padding="14dp"
             android:textColor="#FFFFFF"
-            android:background="@drawable/submit_button_background" />
-
+            android:background="@drawable/submit_button_background"
+            android:padding="14dp"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 </ScrollView>

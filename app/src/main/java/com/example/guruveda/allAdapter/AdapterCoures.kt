@@ -14,7 +14,7 @@ import com.example.guruveda.databinding.CoursesDesignBinding
 
 class AdapterCoures(val context: Context, val list: List<CourseModel>): RecyclerView.Adapter<AdapterCoures.CourseViewHolder>() {
     class CourseViewHolder(val binding: CoursesDesignBinding) : RecyclerView.ViewHolder(binding.root){
-       val couresImage = binding.couresImage
+       val couresImage = binding.courseImage
         val couresTital = binding.couresTital
 //        val couresDescription = binding.couresDescription
         val couresPrice = binding.couresPrice
