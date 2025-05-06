@@ -22,6 +22,7 @@ import com.example.guruveda.DataModel.FreeVideosDataModel
 import com.example.guruveda.DoubtActivity
 import com.example.guruveda.FreeVideoActivity
 import com.example.guruveda.R
+import com.example.guruveda.TestSeriesActivity
 import com.example.guruveda.View.SelectCoursesActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import com.example.guruveda.allAdapter.FreeVideosAdapter
@@ -39,6 +40,7 @@ class HomeFragment : Fragment() {
     lateinit var freeVideosRecyclerView: RecyclerView
     lateinit var recommendedCoursesAdapter: RecommendedCoursesAdapter
     lateinit var freeVideosAdapter: FreeVideosAdapter
+    lateinit var testSeries: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,7 +91,11 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), DoubtActivity::class.java)
             startActivity(intent)
         }
-
+        testSeries=view.findViewById(R.id.testSeriesHome)
+        testSeries.setOnClickListener {
+            val intent = Intent(requireContext(), TestSeriesActivity::class.java)
+            startActivity(intent)
+        }
 
 
         profileViewModel = ViewModelProvider(this)[GetUserDataViewModel::class.java]

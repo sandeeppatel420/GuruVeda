@@ -2,6 +2,8 @@ package com.example.guruveda
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -23,7 +25,6 @@ class CourseDetailActivity : AppCompatActivity(),PaymentResultListener {
     private lateinit var adapter: VideoAdapter
     private lateinit var list: ArrayList<VideoModel>
     private lateinit var viewModel: VideoGetViewModel
-
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +50,14 @@ class CourseDetailActivity : AppCompatActivity(),PaymentResultListener {
         binding.videoRecyclerView.layoutManager = LinearLayoutManager(this)
 
         viewModel = ViewModelProvider(this)[VideoGetViewModel::class.java]
+        viewModel.isLoading.observe(this) { isLoading ->
+            binding.courseProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            }
+        }
         viewModel.videoLiveData.observe(this) {
             list.clear()
             list.addAll(it!!)

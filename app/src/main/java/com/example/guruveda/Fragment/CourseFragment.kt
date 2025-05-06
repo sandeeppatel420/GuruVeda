@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.R
-import com.example.guruveda.ViewModel.AllCouresGet
+import com.example.guruveda.ViewModel.AllCourseViewModel
 import com.example.guruveda.allAdapter.AdapterCoures
 import com.google.firebase.auth.FirebaseAuth
 
 class CourseFragment : Fragment() {
-      lateinit var viewModel: AllCouresGet
+      lateinit var viewModel: AllCourseViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: AdapterCoures
     private var courseList = ArrayList<CourseModel>()
@@ -31,7 +31,7 @@ class CourseFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
-viewModel = ViewModelProvider(this)[AllCouresGet::class.java]
+viewModel = ViewModelProvider(this)[AllCourseViewModel::class.java]
         viewModel.myCoursesLiveData.observe (viewLifecycleOwner){
             courseList.clear()
             courseList.addAll(it)

@@ -1,16 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AllCoursesActivity">
+    android:background="#F8F9FA"
+    tools:context=".AllCoursesActivity"
+    tools:ignore="Orientation">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/allCoursesTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/healthTextColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:navigationIcon="@drawable/arrow"
+        app:title="All Courses"
+        app:titleCentered="true"
+        app:titleTextColor="@android:color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allCoursesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/allCoursesTopAppBar"
+        android:layout_marginTop="6dp"
+        android:padding="5dp"
         tools:listitem="@layout/courses_design" />
-</LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateTint="@color/my_custom_color"
+        style="?android:attr/progressBarStyleLarge"/>
+</RelativeLayout>
