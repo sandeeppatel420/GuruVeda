@@ -9,8 +9,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -23,10 +21,7 @@
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
         <activity
-            android:name=".PdfViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Auth.ProfileEditActivity"
+            android:name=".View.SelectCoursesActivity"
             android:exported="false" />
         <activity
             android:name=".DoubtActivity"
@@ -43,7 +38,10 @@
             android:exported="false" />
         <activity
             android:name=".AllCoursesActivity"
-            android:exported="false" />
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".SelectedActivity" -->
+        <!-- android:exported="false" -->
+        <!-- tools:ignore="MissingClass" /> -->
         <activity
             android:name=".TestSeriesDetailsActivity"
             android:exported="false" />
@@ -68,7 +66,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

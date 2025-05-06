@@ -7,6 +7,17 @@
     android:orientation="vertical"
     tools:context=".Fragment.HomeFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -240,25 +251,44 @@
             android:backgroundTint="#4CB1FD00"/>
 
     </GridLayout>
-
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Free Video"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
 
-        />
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recommended Courses"
+            android:textSize="18dp"
+            />
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recommendedRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="230dp"
+            tools:listitem="@layout/recommended_courses_video_layout"
+            android:orientation="horizontal"
+            />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Free Videos"
+            android:textSize="18dp"
+            />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/freeVideosRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
 
+    </LinearLayout>
         </LinearLayout>
-    </HorizontalScrollView>
+    </ScrollView>
 </LinearLayout>

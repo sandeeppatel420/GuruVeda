@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,7 +27,7 @@ class TestSeriesDetailsActivity: AppCompatActivity(), QuestionAnswerListener {
     private lateinit var descriptionTextView: TextView
     private lateinit var durationTextView: TextView
     private lateinit var questionRecyclerView: RecyclerView
-    private lateinit var submitButton: androidx.appcompat.widget.AppCompatButton
+    private lateinit var submitButton: AppCompatButton
     private lateinit var questionAdapter: QuestionAdapter
     private lateinit var questionList: ArrayList<TestQuestionModel>
     private val questionViewModel: QuestionViewModel by viewModels()
