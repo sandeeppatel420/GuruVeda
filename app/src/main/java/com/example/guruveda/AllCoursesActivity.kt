@@ -21,7 +21,7 @@ class AllCoursesActivity : AppCompatActivity() {
     private lateinit var adapter: AdapterCoures
     private lateinit var list: ArrayList<CourseModel>
 
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint("NotifyDataSetChanged", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAllCoursesBinding.inflate(layoutInflater)
@@ -32,6 +32,11 @@ class AllCoursesActivity : AppCompatActivity() {
 
         binding.allCoursesRecyclerView.layoutManager = GridLayoutManager(this, 2)
         binding.allCoursesRecyclerView.adapter = adapter
+
+            binding.allCoursesTopAppBar.setNavigationOnClickListener {
+                onBackPressed()
+            }
+
 
         viewModel = ViewModelProvider(this)[AllCourseViewModel::class.java]
 

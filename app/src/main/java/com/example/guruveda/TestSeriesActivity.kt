@@ -15,13 +15,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.guruveda.DataModel.TestSeriesDataModal
 import com.example.guruveda.ViewModel.TestSeriesViewModel
 import com.example.guruveda.allAdapter.TestSeriesAdapter
+import com.google.android.material.appbar.MaterialToolbar
 
 class TestSeriesActivity : AppCompatActivity() {
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var adapter: TestSeriesAdapter
     private val testSeriesList = ArrayList<TestSeriesDataModal>()
     private lateinit var testSeriesViewModel: TestSeriesViewModel
-    private lateinit var arrowBack: ImageView
+    private lateinit var arrowBack: MaterialToolbar
   private lateinit var progressBar: ProgressBar
     @SuppressLint("NotifyDataSetChanged", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +30,10 @@ class TestSeriesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test_series)
 
         myRecyclerView = findViewById(R.id.recyclerView)
-        arrowBack = findViewById(R.id.arrowBack)
-        arrowBack.setOnClickListener {
-            onBackPressed()
-        }
+        arrowBack = findViewById(R.id.testSeriesAppBar)
+       arrowBack.setNavigationOnClickListener{
+           onBackPressed()
+       }
         myRecyclerView.layoutManager =
             GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false)
         adapter = TestSeriesAdapter(testSeriesList)
