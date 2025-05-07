@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.guruveda.CourseDetailActivity
+import com.example.guruveda.CouresActivity.CourseDetailActivity
 import com.example.guruveda.DataModel.VideoModel
-import com.example.guruveda.VideoPlayerActivity
+import com.example.guruveda.AllVideoActivity.VideoPlayerActivity
 import com.example.guruveda.databinding.VideoItemBinding
 
 class VideoAdapter(val context: Context, private val list: List<VideoModel>): RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {

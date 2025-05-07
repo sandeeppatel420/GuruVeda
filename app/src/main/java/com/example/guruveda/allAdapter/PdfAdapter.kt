@@ -14,7 +14,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.guruveda.DataModel.PdfModel
-import com.example.guruveda.PdfViewActivity
+import com.example.guruveda.PdfActivity.PdfViewActivity
 import com.example.guruveda.R
 
 class PdfAdapter(private val myContext: Context, private val pdfList:ArrayList<PdfModel>):RecyclerView.Adapter<PdfAdapter.PdfViewHolder>() {

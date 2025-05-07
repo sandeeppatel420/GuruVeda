@@ -1,10 +1,10 @@
-package com.example.guruveda
+package com.example.guruveda.DoubtActivity
 
 import android.Manifest
+import android.R
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -41,7 +41,7 @@ class DoubtActivity : AppCompatActivity() {
 
     private fun spinner() {
         val list = arrayOf("Kotlin", "Dart", "Android", "PHP", "Java", "Python")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, list)
+        val adapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, list)
         binding.enquiryTypeSpinner.adapter = adapter
     }
 
@@ -120,7 +120,7 @@ class DoubtActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             data?.let {
                 val bitmap = it.extras?.get("data") as? Bitmap
                 if (bitmap != null) {

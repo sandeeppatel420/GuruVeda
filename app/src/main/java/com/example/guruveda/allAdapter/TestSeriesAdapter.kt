@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.guruveda.DataModel.TestSeriesDataModal
 import com.example.guruveda.R
-import com.example.guruveda.TestSeriesDetailsActivity
+import com.example.guruveda.AllTestActivity.TestSeriesDetailsActivity
 
 class TestSeriesAdapter(private var testSeriesList: ArrayList<TestSeriesDataModal>): RecyclerView.Adapter<TestSeriesAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
