@@ -1,6 +1,9 @@
 package com.example.guruveda
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +20,7 @@ class FreeVideoActivity : AppCompatActivity() {
     private lateinit var viewModel: FreeVideoGet
 
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFreeVideoBinding.inflate(layoutInflater)
@@ -39,6 +43,18 @@ class FreeVideoActivity : AppCompatActivity() {
 
 
         }
+        viewModel.isLoading.observe(this) { loading ->
+            if (loading) {
+                binding.progressBar2.visibility = View.VISIBLE
+            } else {
+                binding.progressBar2.visibility = View.GONE
+                }
+        }
+        viewModel.errorMessage.observe(this) { errorMsg ->
+            Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
+
+        }
+
         intent.getStringExtra("title")
 
 

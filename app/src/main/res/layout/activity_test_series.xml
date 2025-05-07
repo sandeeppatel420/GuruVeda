@@ -35,11 +35,12 @@
         <ProgressBar
             android:id="@+id/progressBar1"
             style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:visibility="gone"
+            android:indeterminateTint="@color/my_custom_color"
             android:layout_gravity="center" />
     </RelativeLayout>
 

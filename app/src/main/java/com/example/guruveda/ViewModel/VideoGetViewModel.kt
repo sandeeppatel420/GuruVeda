@@ -3,8 +3,13 @@ package com.example.guruveda.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.guruveda.DataModel.VideoModel
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class VideoGetViewModel : ViewModel() {
 
@@ -19,28 +24,31 @@ class VideoGetViewModel : ViewModel() {
     val errorMessage: LiveData<String> get() = _errorMessage
 
     fun getVideos(courseId: String) {
-        _isLoading.value = true // Show progress bar before data is loaded
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val snapshot = withContext(Dispatchers.IO) {
+                    db.collection("courses")
+                        .document(courseId)
+                        .collection("videos")
+                        .get()
+                        .await()
+                }
+                val videoList = ArrayList<VideoModel>()
+                for (document in snapshot.documents) {
+                    val video = document.toObject(VideoModel::class.java)
+                    video?.let { videoList.add(it) }
 
-        try {
-            db.collection("courses")
-                .document(courseId)
-                .collection("videos")
-                .get()
-                .addOnSuccessListener { result ->
-                    val videoList = ArrayList<VideoModel>()
-                    for (document in result) {
-                        val video = document.toObject(VideoModel::class.java)
-                        videoList.add(video)
-                    }
-                    _videoLiveData.value = videoList // Set the videos to LiveData
-                    _isLoading.value = false // Hide progress bar after loading is complete
+
                 }
-                .addOnFailureListener { e ->
-                    _videoLiveData.value = null
-                    _errorMessage.value = "Failed to load videos: ${e.message}"
-                }
-        } catch (e: Exception) {
-            _errorMessage.value = "Unexpected error: ${e.message}"
+                _videoLiveData.value = videoList
+            } catch (e: Exception) {
+                _errorMessage.value = "Failed to load videos: ${e.message}"
+            } finally {
+                _isLoading.value = false
+
+            }
+
         }
     }
 }

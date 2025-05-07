@@ -38,6 +38,7 @@ class CourseDetailActivity : AppCompatActivity(),PaymentResultListener {
         val thumbnail = intent.getStringExtra("thumbnail")
 
 
+
         binding.descriptionDetail.text = description
         binding.titleDetail.text = title
         binding.priceDetail.text = price
@@ -51,12 +52,16 @@ class CourseDetailActivity : AppCompatActivity(),PaymentResultListener {
 
         viewModel = ViewModelProvider(this)[VideoGetViewModel::class.java]
         viewModel.isLoading.observe(this) { isLoading ->
-            binding.courseProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+            if (isLoading) {
+                binding.courseProgressBar.visibility = View.VISIBLE
+            } else {
+                binding.courseProgressBar.visibility = View.GONE
+            }
         }
         viewModel.errorMessage.observe(this) { msg ->
-            if (!msg.isNullOrEmpty()) {
-                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+
         }
         viewModel.videoLiveData.observe(this) {
             list.clear()

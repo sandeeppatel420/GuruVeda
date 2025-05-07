@@ -4,41 +4,49 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.guruveda.DataModel.CourseModel
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class AllCourseViewModel: ViewModel() {
 
     private val firestore = FirebaseFirestore.getInstance()
-    private val _listLiveData = MutableLiveData<List<CourseModel>>()
-    val listLiveData: LiveData<List<CourseModel>> get() = _listLiveData
+    private val _courses = MutableLiveData<List<CourseModel>>()
+    val courses: LiveData<List<CourseModel>> = _courses
     
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> get() = _errorMessage
     fun getCourse() {
-        _isLoading.value = true
-        try {
-            firestore.collection("courses").get()
-                .addOnSuccessListener { result ->
-                    val courseList = ArrayList<CourseModel>()
-                    for (document in result.documents) {
-                        val course = document.toObject(CourseModel::class.java)
-                        course?.let { courseList.add(it) }
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val snapshot = withContext(Dispatchers.IO) {
+                    firestore.collection("courses").get().await()
+                }
+
+                val courseList = ArrayList<CourseModel>()
+                for (document in snapshot.documents) {
+                    val course = document.toObject(CourseModel::class.java)
+                    course?.let {
+                        courseList.add(it)
                     }
-                    _listLiveData.value = courseList
-                    _isLoading.value = false
                 }
-                .addOnFailureListener { exception ->
-                    _errorMessage.value = "Failed to load courses: ${exception.message}"
-                    Log.e("FirestoreViewModel", "Error getting document", exception)
-                }
-        } catch (e: Exception) {
-            _errorMessage.value = "Unexpected error: ${e.message}"
-            Log.e("FirestoreViewModel", "Unexpected error", e)
+
+                _courses.value = courseList  // ✅ LiveData update
+            } catch (e: Exception) {
+                _errorMessage.value = "Failed to load courses: ${e.message}"
+            } finally {
+                _isLoading.value = false
+            }
         }
     }
+
 
 
     private val _myCoursesLiveData = MutableLiveData<List<CourseModel>>()
