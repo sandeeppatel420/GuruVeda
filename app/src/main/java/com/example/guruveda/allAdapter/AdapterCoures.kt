@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.guruveda.CourseDetailActivity
+import com.example.guruveda.activities.CourseDetailActivity
 import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.databinding.CoursesDesignBinding
 

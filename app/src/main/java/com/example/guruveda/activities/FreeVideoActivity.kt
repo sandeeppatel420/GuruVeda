@@ -1,7 +1,6 @@
-package com.example.guruveda
+package com.example.guruveda.activities
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,21 +14,15 @@ class FreeVideoActivity : AppCompatActivity() {
     private lateinit var adapterVideo: VideoAdapter
     private lateinit var list: ArrayList<VideoModel>
     private lateinit var viewModel: FreeVideoGet
-
-
-    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFreeVideoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         list = ArrayList()
         adapterVideo = VideoAdapter(this, list)
         binding.freeVideoRecyclerView.adapter = adapterVideo
-
-        binding.freeVideosTopAppBar.setNavigationOnClickListener {
-            onBackPressed()
-        }
         binding.freeVideoRecyclerView.layoutManager = LinearLayoutManager(this)
 
         viewModel = ViewModelProvider(this)[FreeVideoGet::class.java]
@@ -40,22 +33,10 @@ class FreeVideoActivity : AppCompatActivity() {
 
 
         }
-        viewModel.isLoading.observe(this) { loading ->
-            if (loading) {
-                binding.progressBar2.visibility = View.VISIBLE
-            } else {
-                binding.progressBar2.visibility = View.GONE
-                }
-        }
-        viewModel.errorMessage.observe(this) { errorMsg ->
-            Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
-
-        }
-
         intent.getStringExtra("title")
 
 
-            viewModel.getVideos()
+        viewModel.getVideos()
 
 
     }

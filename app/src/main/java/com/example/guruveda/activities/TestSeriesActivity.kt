@@ -1,9 +1,7 @@
 package com.example.guruveda
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +22,6 @@ class TestSeriesActivity : AppCompatActivity() {
     private lateinit var testSeriesViewModel: TestSeriesViewModel
     private lateinit var arrowBack: MaterialToolbar
   private lateinit var progressBar: ProgressBar
-    @SuppressLint("NotifyDataSetChanged", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_series)

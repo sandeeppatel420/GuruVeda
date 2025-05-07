@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.core.animation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -68,7 +69,10 @@ dependencies {
 
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("com.razorpay:checkout:1.6.33")
-    implementation ("com.github.TomLeCollegue:ProgressBar-Library-Android-Kotlin:0.1.1")
+    implementation (libs.progressbar.library.android.kotlin)
+    implementation ("com.google.android.material:material:1.10.0")
+
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
+
 
 }

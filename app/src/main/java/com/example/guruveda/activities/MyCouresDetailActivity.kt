@@ -1,4 +1,4 @@
-package com.example.guruveda.CouresActivity
+package com.example.guruveda.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

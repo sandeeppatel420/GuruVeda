@@ -1,9 +1,7 @@
-package com.example.guruveda.DoubtActivity
+package com.example.guruveda.activities
 
 import android.Manifest
-import android.R
 import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -14,19 +12,21 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.guruveda.ViewModel.DoubtViewModel
 import com.example.guruveda.databinding.ActivityDoubtBinding
 
 class DoubtActivity : AppCompatActivity() {
     private val CAMERA_PERMISSION_CODE = 101
     private val IMAGE_PICK_CODE = 102
-    private val viewModel: DoubtViewModel by viewModels()
+    private lateinit var viewModel: DoubtViewModel
 
     private var selectedImageUri: Uri? = null
     lateinit var binding: ActivityDoubtBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +35,13 @@ class DoubtActivity : AppCompatActivity() {
 
         spinner()
         setupListeners()
-
+        viewModel= ViewModelProvider(this).get(DoubtViewModel::class.java)
         binding.uploadFileImage.visibility = View.GONE
     }
 
     private fun spinner() {
         val list = arrayOf("Kotlin", "Dart", "Android", "PHP", "Java", "Python")
-        val adapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, list)
+        val adapter = ArrayAdapter(this, com.razorpay.R.layout.support_simple_spinner_dropdown_item, list)
         binding.enquiryTypeSpinner.adapter = adapter
     }
 
@@ -57,25 +57,25 @@ class DoubtActivity : AppCompatActivity() {
 
 
 
-    viewModel.addDoubt(subjectName, doubtMessage, selectedImageUri) { success ->
-        if (success) {
-            binding.circleProgressView.visibility = View.VISIBLE
-            val animator = ObjectAnimator.ofInt(binding.circleProgressView, "progress", 0, 100)
-            animator.duration = 2000
-            animator.start()
+            viewModel.addDoubt(subjectName, doubtMessage, selectedImageUri) { success ->
+                if (success) {
+                    binding.circleProgressView.visibility = View.VISIBLE
+                    val animator = ObjectAnimator.ofInt(binding.circleProgressView, "progress", 0, 100)
+                    animator.duration = 2000
+                    animator.start()
 
-            animator.addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
+                    animator.addListener(object : android.animation.AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator) {
+                            binding.circleProgressView.visibility = View.GONE
+                            Toast.makeText(this@DoubtActivity, "Doubt submitted successfully!", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
+                    })
+                } else {
                     binding.circleProgressView.visibility = View.GONE
-                    Toast.makeText(this@DoubtActivity, "Doubt submitted successfully!", Toast.LENGTH_SHORT).show()
-                    finish()
+                    Toast.makeText(this, "Failed to submit doubt.", Toast.LENGTH_SHORT).show()
                 }
-            })
-        } else {
-            binding.circleProgressView.visibility = View.GONE
-            Toast.makeText(this, "Failed to submit doubt.", Toast.LENGTH_SHORT).show()
-        }
-    }
+            }
 
 
         }
@@ -92,9 +92,10 @@ class DoubtActivity : AppCompatActivity() {
         ) {
             openImageChooser()
         } else {
-            requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
         }
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -138,12 +139,11 @@ class DoubtActivity : AppCompatActivity() {
                 }
             }
         }
-    }
 
+    }
     private fun getImageUriFromBitmap(bitmap: Bitmap): Uri? {
         val path = MediaStore.Images.Media.insertImage(contentResolver, bitmap, "TempImage", null)
         return Uri.parse(path)
     }
-
 
 }

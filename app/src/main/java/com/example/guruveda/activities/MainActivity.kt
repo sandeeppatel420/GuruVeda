@@ -1,4 +1,4 @@
-package com.example.guruveda
+package com.example.guruveda.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import com.example.guruveda.Fragment.HomeFragment
 import com.example.guruveda.Fragment.PdfFragment
 import com.example.guruveda.Fragment.ProfileFragment
 import com.example.guruveda.Fragment.TestFragment
+import com.example.guruveda.R
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 class MainActivity : AppCompatActivity() {

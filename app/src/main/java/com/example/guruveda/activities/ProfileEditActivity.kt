@@ -1,4 +1,4 @@
-package com.example.guruveda.Auth
+package com.example.guruveda.activities
 
 import android.app.Activity
 import android.app.ProgressDialog

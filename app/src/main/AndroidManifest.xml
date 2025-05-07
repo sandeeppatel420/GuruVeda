@@ -9,8 +9,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -23,33 +23,35 @@
         android:theme="@style/Theme.GuruVeda"
         tools:targetApi="31">
         <activity
-            android:name=".View.SelectCoursesActivity"
+            android:name=".activities.DoubtActivity"
             android:exported="false" />
         <activity
-            android:name=".DoubtActivity"
+            android:name=".activities.AllCourseActivity"
             android:exported="false" />
         <activity
-            android:name=".FreeVideoActivity"
-            android:exported="false"
-            android:theme="@style/Theme.GuruVeda" />
-        <activity
-            android:name=".VideoPlayerActivity"
+            android:name=".activities.FreeVideoActivity"
             android:exported="false" />
         <activity
-            android:name=".CourseDetailActivity"
+            android:name=".activities.SelectCoursesActivity"
             android:exported="false" />
         <activity
-            android:name=".AllCoursesActivity"
+            android:name=".activities.CourseDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".TestSeriesDetailsActivity"
+            android:name=".activities.VideoPlayerActivity"
             android:exported="false" />
         <activity
             android:name=".TestSeriesActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="false" />
+        <activity android:name=".activities.AnswerDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TestSeriesDetailsActivity"
+            android:exported="false" />
+
         <activity
             android:name=".Auth.SignupActivity"
             android:exported="false" />
@@ -65,7 +67,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

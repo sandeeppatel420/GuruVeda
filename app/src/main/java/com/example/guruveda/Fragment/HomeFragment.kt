@@ -1,5 +1,6 @@
 package com.example.guruveda.Fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,19 +10,22 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
-import com.example.guruveda.AllCoursesActivity
 import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.DataModel.FreeVideosDataModel
-import com.example.guruveda.DoubtActivity
-import com.example.guruveda.FreeVideoActivity
+import com.example.guruveda.activities.DoubtActivity
+
 import com.example.guruveda.R
 import com.example.guruveda.TestSeriesActivity
-import com.example.guruveda.View.SelectCoursesActivity
+import com.example.guruveda.activities.SelectCoursesActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
+import com.example.guruveda.activities.AllCourseActivity
+import com.example.guruveda.activities.FreeVideoActivity
 import com.example.guruveda.allAdapter.FreeVideosAdapter
 import com.example.guruveda.allAdapter.RecommendedCoursesAdapter
 import com.google.firebase.firestore.FirebaseFirestore
@@ -72,7 +76,7 @@ class HomeFragment : Fragment() {
         }
 
         textView1.setOnClickListener {
-            val intent = Intent(requireContext(), AllCoursesActivity::class.java)
+            val intent = Intent(requireContext(), AllCourseActivity::class.java)
             startActivity(intent)
 
         }

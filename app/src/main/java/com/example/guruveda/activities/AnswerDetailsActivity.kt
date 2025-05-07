@@ -1,4 +1,4 @@
-package com.example.guruveda.AllTestActivity
+package com.example.guruveda.activities
 
 import android.annotation.SuppressLint
 import android.os.Bundle
