@@ -25,6 +25,7 @@ import com.example.guruveda.TestSeriesActivity
 import com.example.guruveda.activities.SelectCoursesActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import com.example.guruveda.activities.AllCourseActivity
+import com.example.guruveda.activities.DownloadActivity
 import com.example.guruveda.activities.FreeVideoActivity
 import com.example.guruveda.allAdapter.FreeVideosAdapter
 import com.example.guruveda.allAdapter.RecommendedCoursesAdapter
@@ -42,7 +43,9 @@ class HomeFragment : Fragment() {
     lateinit var recommendedCoursesAdapter: RecommendedCoursesAdapter
     lateinit var freeVideosAdapter: FreeVideosAdapter
     lateinit var testSeries: TextView
+    lateinit var downloads: TextView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -95,6 +98,11 @@ class HomeFragment : Fragment() {
         testSeries=view.findViewById(R.id.testSeriesHome)
         testSeries.setOnClickListener {
             val intent = Intent(requireContext(), TestSeriesActivity::class.java)
+            startActivity(intent)
+        }
+        downloads=view.findViewById(R.id.downloadHome)
+        downloads.setOnClickListener {
+            val intent = Intent(requireContext(), DownloadActivity::class.java)
             startActivity(intent)
         }
 

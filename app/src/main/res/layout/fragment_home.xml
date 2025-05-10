@@ -220,6 +220,7 @@
             android:backgroundTint="#47FDCA00"/>
 
         <TextView
+            android:id="@+id/downloadHome"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_columnWeight="1"

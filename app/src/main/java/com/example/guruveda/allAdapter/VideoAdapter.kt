@@ -1,19 +1,32 @@
 package com.example.guruveda.allAdapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.guruveda.DataModel.VideoModel
-import com.example.guruveda.databinding.VideoItemBinding
+import com.example.guruveda.R
+import com.example.guruveda.ViewModel.DownloadViewModel
+import com.example.guruveda.activities.DownloadActivity
 import com.example.guruveda.activities.VideoPlayerActivity
-import android.content.Intent
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
+import com.example.guruveda.databinding.VideoItemBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import java.io.File
+import java.io.FileOutputStream
 
-class VideoAdapter(val context: Context, private val list: MutableList<VideoModel>) :
+class VideoAdapter(
+    val context: Context,
+    private val list: MutableList<VideoModel>,
+    val downloadViewModel: DownloadViewModel
+) :
     RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {
 
     class VideoViewHolder(binding: VideoItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -36,7 +49,6 @@ class VideoAdapter(val context: Context, private val list: MutableList<VideoMode
         holder.videoType.text = data.type
         Glide.with(context).load(data.videoUrl).into(holder.videoImage)
 
-        // ✅ Open video player on click
         holder.itemView.setOnClickListener {
             val intent = Intent(context, VideoPlayerActivity::class.java)
             intent.putExtra("videoUrl", data.videoUrl)
@@ -45,44 +57,32 @@ class VideoAdapter(val context: Context, private val list: MutableList<VideoMode
         }
 
         holder.menuIcon.setOnClickListener {
-            val alertDialog = android.app.AlertDialog.Builder(context)
-            alertDialog.setTitle("Delete")
-            alertDialog.setMessage("Are you sure you want to delete this video?")
-            alertDialog.setPositiveButton("Yes") { _, _ ->
-                val db = FirebaseFirestore.getInstance()
-                val storage = FirebaseStorage.getInstance()
-                if (data.id != null) {
-                    db.collection("videos").document(data.id)
-                        .delete()
-                        .addOnSuccessListener {
-                            val fileRef = data.videoUrl?.let {
-                                storage.getReferenceFromUrl(
-                                    it
-                                )
-                            }
+            val popupMenu = PopupMenu(context, holder.menuIcon)
+            popupMenu.menuInflater.inflate(R.menu.video_menu, popupMenu.menu)
 
-
-                            if (fileRef != null) {
-                                fileRef.delete().addOnSuccessListener {
-                                    Toast.makeText(context, "Video deleted", Toast.LENGTH_SHORT).show()
-                                }.addOnFailureListener {
-                                    Toast.makeText(context, "Storage delete failed", Toast.LENGTH_SHORT)
-                                        .show()
-                                }
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.menu_download -> {
+                        downloadViewModel.downloadVideo(context, data) { success, message ->
+                            CoroutineScope(Dispatchers.Main).launch {
+                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                             }
-                            list.removeAt(position)
-                            notifyItemRemoved(position)
-                            notifyItemRangeChanged(position, list.size)
-                        }.addOnFailureListener {
-                            Toast.makeText(context, "Firestore delete failed", Toast.LENGTH_SHORT)
-                                .show()
                         }
+                        true
+                    }
+
+                    else -> false
                 }
             }
-            alertDialog.setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
-            alertDialog.show()
+            popupMenu.show()
+
+
         }
     }
 
+
     override fun getItemCount(): Int = list.size
 }
+
+
+

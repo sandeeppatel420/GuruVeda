@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.guruveda"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -73,6 +73,8 @@ dependencies {
     implementation ("com.google.android.material:material:1.10.0")
 
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
+    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
+
 
 
 }
