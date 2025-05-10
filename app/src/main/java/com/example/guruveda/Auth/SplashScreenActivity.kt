@@ -7,7 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.guruveda.MainActivity
+import com.example.guruveda.activities.MainActivity
 import com.example.guruveda.R
 import com.example.guruveda.databinding.ActivitySplashSreenBinding
 import com.google.firebase.auth.FirebaseAuth

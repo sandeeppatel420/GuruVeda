@@ -1,30 +1,30 @@
-package com.example.guruveda
+package com.example.guruveda.activities
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.guruveda.DataModel.VideoModel
+import com.example.guruveda.ViewModel.DownloadViewModel
 import com.example.guruveda.ViewModel.FreeVideoGet
 import com.example.guruveda.allAdapter.VideoAdapter
-import com.example.guruveda.databinding.ActivityFreeVideo2Binding
-
+import com.example.guruveda.databinding.ActivityFreeVideoBinding
 
 class FreeVideoActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityFreeVideo2Binding
+    private lateinit var binding: ActivityFreeVideoBinding
     private lateinit var adapterVideo: VideoAdapter
     private lateinit var list: ArrayList<VideoModel>
     private lateinit var viewModel: FreeVideoGet
-
+    private lateinit var downloadViewModel: DownloadViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = ActivityFreeVideo2Binding.inflate(layoutInflater)
+        binding = ActivityFreeVideoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         list = ArrayList()
-        adapterVideo = VideoAdapter(this, list)
+        downloadViewModel = ViewModelProvider(this)[DownloadViewModel::class.java]
+        adapterVideo = VideoAdapter(this, list,downloadViewModel)
         binding.freeVideoRecyclerView.adapter = adapterVideo
         binding.freeVideoRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -39,7 +39,7 @@ class FreeVideoActivity : AppCompatActivity() {
         intent.getStringExtra("title")
 
 
-            viewModel.getVideos()
+        viewModel.getVideos()
 
 
     }

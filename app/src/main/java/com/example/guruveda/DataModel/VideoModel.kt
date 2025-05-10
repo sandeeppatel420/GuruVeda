@@ -1,10 +1,10 @@
 package com.example.guruveda.DataModel
 
 data class VideoModel(
-    val description :String?=null,
-    val duration :String?=null,
-    val title :String?=null,
+    val title: String = "",
+    val videoUrl: String = "",
+    val duration: String = "",
+    val type: String = "",
+    val description :String="",
     val id :String?=null,
-    val videoUrl :String?=null,
-    val type:String?=null,
 )

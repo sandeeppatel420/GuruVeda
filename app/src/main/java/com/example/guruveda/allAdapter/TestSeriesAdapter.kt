@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.guruveda.DataModel.TestSeriesDataModal
 import com.example.guruveda.R
-import com.example.guruveda.TestSeriesDetailsActivity
+import com.example.guruveda.activities.TestSeriesDetailsActivity
 
 class TestSeriesAdapter(private var testSeriesList: ArrayList<TestSeriesDataModal>): RecyclerView.Adapter<TestSeriesAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -19,8 +19,7 @@ class TestSeriesAdapter(private var testSeriesList: ArrayList<TestSeriesDataModa
         val testDescriptionTextView = itemView.findViewById<TextView>(R.id.test_description)
         val testDurationTextView = itemView.findViewById<TextView>(R.id.test_duration)
         val texstImageView = itemView.findViewById<ImageView>(R.id.test_image)
-        val testEditTextView = itemView.findViewById<TextView>(R.id.test_edit)
-        val testExitTextView = itemView.findViewById<TextView>(R.id.testExit_TextView)
+
 
     }
 

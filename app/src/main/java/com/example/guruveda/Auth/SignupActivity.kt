@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.guruveda.MainActivity
+import com.example.guruveda.activities.MainActivity
 import com.example.guruveda.ViewModel.AuthViewModel
 import com.example.guruveda.databinding.ActivitySignupBinding
 

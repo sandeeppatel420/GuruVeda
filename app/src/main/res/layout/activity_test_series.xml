@@ -7,19 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".TestSeriesActivity">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toobar1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/healthTextColor">
-                <ImageView
-                    android:id="@+id/arrowBack"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/arrow"
-                    tools:ignore="ContentDescription" />
-            </androidx.appcompat.widget.Toolbar>
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/testSeriesAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/healthTextColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:navigationIcon="@drawable/arrow"
+        app:title="Test Series"
+        app:titleCentered="true"
+        app:titleTextColor="@android:color/white" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -31,17 +29,18 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
                 tools:listitem="@layout/test_series_layout"
-                android:layout_below="@id/toobar1"
+
                 />
 
         <ProgressBar
             android:id="@+id/progressBar1"
             style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:visibility="gone"
+            android:indeterminateTint="@color/my_custom_color"
             android:layout_gravity="center" />
     </RelativeLayout>
 

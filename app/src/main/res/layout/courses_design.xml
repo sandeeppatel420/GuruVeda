@@ -1,50 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_column="02"
-    android:layout_margin="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F0F0F0"
+    android:orientation="vertical"
+    android:padding="5dp">
 
-   <GridLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:columnCount="02"
-       android:orientation="vertical"
-       android:layout_marginStart="05dp"
-       android:layout_margin="05dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:elevation="6dp"
+        app:cardCornerRadius="16dp"
+        android:backgroundTint="#FFFFFF">
 
-       <ImageView
-          android:id="@+id/couresImage"
-           android:layout_width="180dp"
-           android:layout_height="150dp"
-           android:importantForAccessibility="no"
-           android:src="@drawable/liveimg"
-           android:layout_margin="10dp"
-           android:layout_gravity="center"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-           />
-       <TextView
-           android:id="@+id/couresTital"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="coures tital"
-           android:textSize="15sp" />
-      <TextView
-          android:id="@+id/couresDescription"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="coures Description"
-          android:textSize="15sp" />
+            <ImageView
+                android:id="@+id/courseImage"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/liveimg"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="Course Image"
+                android:background="@drawable/image_rounded" />
 
+            <TextView
+                android:id="@+id/courseTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Course Title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#111827"
+                android:layout_marginBottom="8dp" />
 
+            <TextView
+                android:id="@+id/coursePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹999"
+                android:textSize="16sp"
+                android:textColor="#D32F2F"
+                android:textStyle="bold" />
 
-       <TextView
-           android:id="@+id/couresPrice"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text=" coures price"
-           android:textSize="15sp" />
+        </LinearLayout>
 
-   </GridLayout>
+    </androidx.cardview.widget.CardView>
 
-</androidx.cardview.widget.CardView>
+</LinearLayout>

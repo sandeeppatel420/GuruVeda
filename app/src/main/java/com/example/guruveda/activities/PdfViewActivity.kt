@@ -1,4 +1,4 @@
-package com.example.guruveda
+package com.example.guruveda.activities
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.guruveda.R
 import com.github.barteksc.pdfviewer.PDFView
+
 import com.google.firebase.storage.FirebaseStorage
 
 class PdfViewActivity : AppCompatActivity() {
