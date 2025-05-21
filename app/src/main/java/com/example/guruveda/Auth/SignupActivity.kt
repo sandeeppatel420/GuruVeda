@@ -29,7 +29,8 @@ class SignupActivity : AppCompatActivity() {
             val userName=binding.signUpName.text.toString()
             val userEmail=binding.signUpEmail.text.toString()
             val userPhone=binding.signUpPhone.text.toString()
-            val userPassword=binding.signUpConPassword.text.toString()
+            val userPassword=binding.signUpPass.text.toString()
+            val userConformPassword=binding.signUpConPassword.text.toString()
 
             if (userName==""){
                 Toast.makeText(this, "Please Enter Name", Toast.LENGTH_SHORT).show()
@@ -40,9 +41,17 @@ class SignupActivity : AppCompatActivity() {
             else if (userPhone==""){
                 Toast.makeText(this, "Please Enter PhoneNumber", Toast.LENGTH_SHORT).show()
             }
+            else if (userPhone.length!=10){
+                Toast.makeText(this, "Phone Number should not be more than 10 digits", Toast.LENGTH_SHORT).show()
+            }
             else if (userPassword==""){
                 Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show()
             }
+            else if (userConformPassword==""){
+                Toast.makeText(this, "Please Enter conformPassword", Toast.LENGTH_SHORT).show()
+            }
+            else if (userPassword != userConformPassword) {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()}
             else{
                 progressDialog.show()
              userViewModel.register(userName,userEmail,userPhone,userPassword)

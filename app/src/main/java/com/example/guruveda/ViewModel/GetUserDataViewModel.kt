@@ -20,7 +20,7 @@ class GetUserDataViewModel: ViewModel() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         val user = snapshot.getValue(AuthModel::class.java)
-                        users1.value = user
+                        users1.value =user!!
                     }
                 }
 

@@ -13,10 +13,11 @@ class ProfileUpdateViewModel:ViewModel() {
     val db= FirebaseDatabase.getInstance()
     val auth=FirebaseAuth.getInstance()
 
-    fun profileUpdateData(name:String,email:String,image:String,userId: String){
+    fun profileUpdateData(name:String,email:String, phone:String,image:String,userId: String){
        val updates=HashMap<String,Any>()
           updates["name"]=name
           updates["email"]=email
+          updates["phoneNumber"]=phone
           updates["userId"]=userId
          if (image!=""){
              updates["imageProfile"]=image

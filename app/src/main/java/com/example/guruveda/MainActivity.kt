@@ -30,14 +30,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav = findViewById(R.id.bottomNav)
         bottomNav.setItemSelected(R.id.home_icon, true)
 
-//        val intent=intent.getStringExtra("Courses")?:""
-//        if (intent.isNotEmpty()){
-//            loadFragment(CourseFragment())
-//        }
-//        else
-//        {
-//            loadFragment(HomeFragment())
-//        }
+
 
         loadFragment(HomeFragment())
         bottomNav.setOnItemSelectedListener { itemId ->
@@ -55,12 +48,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.MyTest_icon -> {
-                    if (currentFragment !is PdfFragment) loadFragment(TestFragment())
+                    if (currentFragment !is TestFragment) loadFragment(TestFragment())
                     true
                 }
 
                 R.id.openBook -> {
-                    if (currentFragment !is TestFragment) loadFragment(PdfFragment())
+                    if (currentFragment !is PdfFragment) loadFragment(PdfFragment())
                     true
                 }
 

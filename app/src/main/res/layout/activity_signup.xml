@@ -64,9 +64,10 @@
             android:id="@+id/signUpPhone"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:inputType="textEmailAddress"
+            android:inputType="phone"
             android:background="@drawable/shape"
             android:hint="Phone Number"
+            android:maxLines="1"
             android:layout_marginTop="15dp"
             android:paddingStart="10dp"/>
         <EditText

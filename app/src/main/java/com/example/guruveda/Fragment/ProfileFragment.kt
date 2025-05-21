@@ -42,14 +42,20 @@ class ProfileFragment : Fragment() {
 
         datalist=ArrayList()
         binding?.editLayout?.setOnClickListener {
-            val name=binding?.userNameText1?.text.toString()
-            val email=binding?.userEmailText1?.text.toString()
-          val intent=Intent(requireContext(),ProfileEditActivity::class.java)
-            intent.putExtra("name",name)
-            intent.putExtra("email",email)
-            intent.putExtra("imageProfile",datalist[0].imageProfile)
-            intent.putExtra("id",datalist[0].userId)
-            startActivity(intent)
+            if (datalist.isNotEmpty()) {
+                val name = binding?.userNameText1?.text.toString()
+                val email = binding?.userEmailText1?.text.toString()
+                val phone=binding?.userPhoneText1?.text.toString()
+                val intent = Intent(requireContext(), ProfileEditActivity::class.java)
+                intent.putExtra("name", name)
+                intent.putExtra("email", email)
+                intent.putExtra("phone", phone)
+                intent.putExtra("imageProfile", datalist[0].imageProfile)
+                intent.putExtra("id", datalist[0].userId)
+                startActivity(intent)
+            } else {
+                Toast.makeText(requireContext(), "Please wait, data is loading...", Toast.LENGTH_SHORT).show()
+            }
         }
 
         viewModel= ViewModelProvider(this)[GetUserDataViewModel::class.java]
@@ -83,34 +89,27 @@ class ProfileFragment : Fragment() {
         val dialog= AlertDialog.Builder(requireContext())
         dialog.setTitle("Log Out")
         dialog.setMessage("Are you sure you want to logout?")
-        dialog.setPositiveButton("Logout"){ b ,_->
+        dialog.setPositiveButton("Logout"){ b ,_ ->
             FirebaseAuth.getInstance().signOut()
-            val intent= Intent(requireContext(), LoginActivity::class.java)
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            activity?.finish()
             b.dismiss()
             Toast.makeText(requireContext(), "Logout", Toast.LENGTH_SHORT).show()
         }
-        dialog.setNegativeButton("Cancle"){a,_->
+        dialog.setNegativeButton("Cancel"){ a,_ ->
             a.cancel()
-            Toast.makeText(requireContext(), "Cancle", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()
         }
         dialog.setCancelable(false)
         val alertDialog = dialog.create()
-
         alertDialog.show()
 
-
         val positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-        positiveButton.setTextColor(
-            ContextCompat.getColor(requireContext(),
-            R.color.black2
-        ))
+        positiveButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.black2))
 
-        val negativeButton=alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-        negativeButton.setTextColor(
-            ContextCompat.getColor(requireContext(),
-            R.color.black2
-        ))
+        val negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+        negativeButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.black2))
     }
+
 }

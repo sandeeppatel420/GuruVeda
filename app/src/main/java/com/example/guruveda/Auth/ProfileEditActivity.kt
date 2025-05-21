@@ -29,6 +29,7 @@ import java.io.FileOutputStream
 class ProfileEditActivity : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
+    private lateinit var phoneEditText: EditText
     private lateinit var profileImageView: ImageView
     private lateinit var viewModel: ProfileUpdateViewModel
     private var imageUri: Uri?=null
@@ -41,19 +42,27 @@ class ProfileEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_edit)
 
-
+     val backImage=findViewById<ImageView>(R.id.edit_back_image)
+        backImage.setOnClickListener {
+            finish()
+        }
 
         nameEditText=findViewById(R.id.profileName_EditText)
         emailEditText=findViewById(R.id.profileEmail_EditText)
+        phoneEditText=findViewById(R.id.profilePhone_EditText)
         profileImageView=findViewById(R.id.ProfileImage_ImageView)
 
         val nameData=intent.getStringExtra("name")
         val emailData=intent.getStringExtra("email")
+        val phoneData=intent.getStringExtra("phone")
         val imageData=intent.getStringExtra("imageProfile")
 
         currentId = intent.getStringExtra("id") ?: ""
-       nameEditText.setText(nameData)
+
+        nameEditText.setText(nameData)
         emailEditText.setText(emailData)
+        phoneEditText.setText(phoneData)
+
         Glide.with(this).load(imageData).into(profileImageView)
         viewModel= ViewModelProvider(this)[ProfileUpdateViewModel::class.java]
 
@@ -73,11 +82,12 @@ class ProfileEditActivity : AppCompatActivity() {
             progressDialog.show()
             val nameUpdate=nameEditText.text.toString()
             val emailUpdate=emailEditText.text.toString()
+            val phoneUpdate=phoneEditText.text.toString()
           if (updateImage){
-              uploadImage(nameUpdate,emailUpdate)
+              uploadImage(nameUpdate,emailUpdate,phoneUpdate)
           }
             else{
-              viewModel.profileUpdateData(nameUpdate,emailUpdate,"",currentId)
+              viewModel.profileUpdateData(nameUpdate,emailUpdate,phoneUpdate,imageData.toString(),currentId,)
           }
 
         }
@@ -96,6 +106,7 @@ class ProfileEditActivity : AppCompatActivity() {
                 showImageSelectedOptions()
             }
         }
+
 
     }
 
@@ -157,14 +168,14 @@ class ProfileEditActivity : AppCompatActivity() {
     }
 
 
-    private fun uploadImage(name: String, email: String) {
+    private fun uploadImage(name: String, email: String,phone:String) {
         val storageRef = FirebaseStorage.getInstance().reference
         val imageref = storageRef.child("images/${System.currentTimeMillis()}.jpg")
 
         if (imageUri != null) {
             imageref.putFile(imageUri!!).addOnSuccessListener {
                 imageref.downloadUrl.addOnSuccessListener { uri ->
-                    viewModel.profileUpdateData(name, email, uri.toString(), currentId)
+                    viewModel.profileUpdateData(name, email,phone, uri.toString(), currentId)
                     Toast.makeText(this, "Image update success", Toast.LENGTH_SHORT).show()
                 }
             }.addOnFailureListener {
@@ -172,4 +183,5 @@ class ProfileEditActivity : AppCompatActivity() {
             }
         }
     }
+
 }
