@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.guruveda.DataModel.AuthModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.messaging.FirebaseMessaging
 
 class AuthViewModel : ViewModel() {
     val users = MutableLiveData<AuthModel>()
@@ -16,25 +17,39 @@ class AuthViewModel : ViewModel() {
         auth.createUserWithEmailAndPassword(email, confirmPassword)
             .addOnSuccessListener {
                 val userId = auth.currentUser
-                userId?.let {
-                    val data = mapOf(
-                        "name" to name,
-                        "email" to email,
-                        "phoneNumber" to phoneNumber,
-                        "userId" to it.uid,
-                        "conformPassword" to confirmPassword,
-                        "imageProfile" to "https://firebasestorage.googleapis.com/v0/b/onlyrealtimedata.appspot.com/o/image%2Fprofile1.png?alt=media&token=183f368e-8d5a-4ab6-bb16-8e6ad657ec57"
-                    )
-                    db.getReference("Users1").child(it.uid).setValue(data)
-                        .addOnSuccessListener {
-                            users.value = AuthModel(name, email, phoneNumber, confirmPassword)
+                userId?.let { firebaseUser ->
+
+
+                    FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val token = task.result
+                            val data = mapOf(
+                                "name" to name,
+                                "email" to email,
+                                "phoneNumber" to phoneNumber,
+                                "userId" to firebaseUser.uid,
+                                "conformPassword" to confirmPassword,
+                                "imageProfile" to "https://firebasestorage.googleapis.com/v0/b/onlyrealtimedata.appspot.com/o/image%2Fprofile1.png?alt=media&token=183f368e-8d5a-4ab6-bb16-8e6ad657ec57",
+                                "DeviceToken" to token
+                            )
+
+                            db.getReference("Users1").child(firebaseUser.uid).setValue(data)
+                                .addOnSuccessListener {
+                                    users.value = AuthModel(name, email, phoneNumber, confirmPassword)
+                                }
+                                .addOnFailureListener { error ->
+                                    Log.e("AuthViewModel", "Database Error: ${error.message}")
+                                }
+
+                        } else {
+                            Log.e("AuthViewModel", "FCM Token Error: ${task.exception?.message}")
                         }
-                        .addOnFailureListener { error ->
-                            Log.e("AuthViewModel", "Database Error: ${error.message}")
-                        }
+                    }
                 }
             }
-
+            .addOnFailureListener { error ->
+                Log.e("AuthViewModel", "Registration Error: ${error.message}")
+            }
     }
 
     fun login(email: String, password: String) {

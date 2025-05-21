@@ -18,6 +18,7 @@ import com.example.guruveda.DoubtActivity.DoubtActivity
 import com.example.guruveda.AllVideoActivity.FreeVideoActivity
 import com.example.guruveda.R
 import com.example.guruveda.AllTestActivity.TestSeriesActivity
+import com.example.guruveda.Notification.NotificationActivity
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import kotlin.jvm.java
 
@@ -75,6 +76,13 @@ class HomeFragment : Fragment() {
            val intent = Intent(requireContext(), TestSeriesActivity::class.java)
             startActivity(intent)
         }
+        ///notification work
+        val notificationIcon = view.findViewById<ImageView>(R.id.notification_icon)
+        notificationIcon.setOnClickListener {
+            val intent = Intent(requireContext(), NotificationActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
 

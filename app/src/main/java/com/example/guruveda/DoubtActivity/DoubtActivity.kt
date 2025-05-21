@@ -1,6 +1,7 @@
 package com.example.guruveda.DoubtActivity
 
 import android.Manifest
+//noinspection SuspiciousImport
 import android.R
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -51,35 +52,30 @@ class DoubtActivity : AppCompatActivity() {
             val doubtMessage = binding.doubtMessage.text.toString()
 
             if (doubtMessage.isEmpty()) {
-                Toast.makeText(this, "Please enter your doubt", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Doubt likho pehle!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            viewModel.addDoubt(subjectName, doubtMessage, selectedImageUri, this) { success ->
+                if (success) {
+                    binding.circleProgressView.visibility = View.VISIBLE
+                    val animator = ObjectAnimator.ofInt(binding.circleProgressView, "progress", 0, 100)
+                    animator.duration = 2000
+                    animator.start()
 
-
-    viewModel.addDoubt(subjectName, doubtMessage, selectedImageUri) { success ->
-        if (success) {
-            binding.circleProgressView.visibility = View.VISIBLE
-            val animator = ObjectAnimator.ofInt(binding.circleProgressView, "progress", 0, 100)
-            animator.duration = 2000
-            animator.start()
-
-            animator.addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
+                    animator.addListener(object : AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(animation: Animator) {
+                            binding.circleProgressView.visibility = View.GONE
+                            Toast.makeText(this@DoubtActivity, "Doubt submit ho gaya!", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
+                    })
+                } else {
                     binding.circleProgressView.visibility = View.GONE
-                    Toast.makeText(this@DoubtActivity, "Doubt submitted successfully!", Toast.LENGTH_SHORT).show()
-                    finish()
+                    Toast.makeText(this, "Doubt submit nahi hua.", Toast.LENGTH_SHORT).show()
                 }
-            })
-        } else {
-            binding.circleProgressView.visibility = View.GONE
-            Toast.makeText(this, "Failed to submit doubt.", Toast.LENGTH_SHORT).show()
+            }
         }
-    }
-
-
-        }
-
         binding.uploadFileButton.setOnClickListener {
             checkCameraPermission()
             binding.uploadFileImage.visibility = View.VISIBLE

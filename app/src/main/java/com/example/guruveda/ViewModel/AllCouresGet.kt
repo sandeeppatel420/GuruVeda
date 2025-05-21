@@ -34,8 +34,6 @@ class AllCouresGet:ViewModel(){
             .addOnSuccessListener { documents ->
                 val courseList = ArrayList<CourseModel>()
                 val courseIds = documents.mapNotNull { it.getString("courseId") }
-
-                // ✅ ADD THIS CHECK
                 if (courseIds.isEmpty()) {
                     myCoursesLiveData.value = emptyList()
                     return@addOnSuccessListener
