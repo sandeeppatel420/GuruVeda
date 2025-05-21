@@ -1,4 +1,4 @@
-package com.example.guruveda.AllTestActivity
+package com.example.guruveda.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -70,18 +70,11 @@ class TestSeriesDetailsActivity: AppCompatActivity(), QuestionAnswerListener {
                 intent.putExtra("imageUrl", imageUrl1)
 
                 // Pass the selected answers as a formatted string
-                intent.putExtra(
-                    "selectedAnswer",
-                    selectedAnswers.joinToString("\n\n") { "Question: ${it.first}\nAnswer: ${it.second}" })
-
+                intent.putExtra("selectedAnswer", selectedAnswers.joinToString("\n\n") { "Question: ${it.first}\nAnswer: ${it.second}"})
                 startActivity(intent)
             } else {
-                // Show a message to the user to select answers
-                Toast.makeText(
-                    this,
-                    "Please select an answer for each question.",
-                    Toast.LENGTH_SHORT
-                ).show()
+
+                Toast.makeText(this, "Please select an answer for each question.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -119,7 +112,9 @@ class TestSeriesDetailsActivity: AppCompatActivity(), QuestionAnswerListener {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onAnswerSelected(questionId: String, answer: String, index: Int) {
+    override fun onAnswerSelected(questionId: String, answer: String, index: Int, isSelected:Boolean) {
+
+
         if (selectedAnswers.any { it.first == "Q$index" }) {
             selectedAnswers.removeAll { it.first == "Q$index" }
             questionAdapter.notifyDataSetChanged()
@@ -129,6 +124,13 @@ class TestSeriesDetailsActivity: AppCompatActivity(), QuestionAnswerListener {
             questionAdapter.notifyDataSetChanged()
             questionViewModel.updateSelectedAnswer(questionId, selectedAnswers.toString())
 
+        }
+
+        if (!isSelected){
+            selectedAnswers.removeAll { it.first == "Q$index" }
+            questionAdapter.notifyDataSetChanged()
+            questionViewModel.updateSelectedAnswer(questionId, selectedAnswers.toString())
+            return
         }
     }
 

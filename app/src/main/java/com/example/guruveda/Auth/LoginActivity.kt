@@ -4,11 +4,10 @@ import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.guruveda.MainActivity
+import com.example.guruveda.activities.MainActivity
 import com.example.guruveda.ViewModel.AuthViewModel
 import com.example.guruveda.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth

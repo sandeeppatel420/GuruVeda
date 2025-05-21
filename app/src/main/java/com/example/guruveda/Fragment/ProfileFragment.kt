@@ -15,9 +15,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.guruveda.Auth.LoginActivity
-import com.example.guruveda.Auth.ProfileEditActivity
+import com.example.guruveda.activities.ProfileEditActivity
 import com.example.guruveda.DataModel.AuthModel
-import com.example.guruveda.MainActivity
+import com.example.guruveda.activities.MainActivity
 import com.example.guruveda.R
 import com.example.guruveda.ViewModel.GetUserDataViewModel
 import com.example.guruveda.databinding.FragmentProfileBinding
@@ -44,7 +44,7 @@ class ProfileFragment : Fragment() {
         binding?.editLayout?.setOnClickListener {
             val name=binding?.userNameText1?.text.toString()
             val email=binding?.userEmailText1?.text.toString()
-          val intent=Intent(requireContext(),ProfileEditActivity::class.java)
+          val intent=Intent(requireContext(), ProfileEditActivity::class.java)
             intent.putExtra("name",name)
             intent.putExtra("email",email)
             intent.putExtra("imageProfile",datalist[0].imageProfile)

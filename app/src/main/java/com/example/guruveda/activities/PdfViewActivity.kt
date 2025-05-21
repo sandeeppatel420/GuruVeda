@@ -1,4 +1,4 @@
-package com.example.guruveda.PdfActivity
+package com.example.guruveda.activities
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.guruveda.R
 import com.github.barteksc.pdfviewer.PDFView
+
 import com.google.firebase.storage.FirebaseStorage
 
 class PdfViewActivity : AppCompatActivity() {
@@ -47,7 +48,7 @@ class PdfViewActivity : AppCompatActivity() {
     }
 
     private fun loadPdfFromFirebase(pdfUrl: String, pdfView: PDFView) {
-        progressBar.visibility= View.VISIBLE
+        progressBar.visibility=View.VISIBLE
         val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
         storageReference.getBytes(Long.MAX_VALUE).addOnSuccessListener { bytes ->
             pdfView.fromBytes(bytes)

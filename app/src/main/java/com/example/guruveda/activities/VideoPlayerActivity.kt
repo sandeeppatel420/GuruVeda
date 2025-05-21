@@ -1,4 +1,4 @@
-package com.example.guruveda.AllVideoActivity
+package com.example.guruveda.activities
 
 import android.os.Bundle
 import android.view.View
