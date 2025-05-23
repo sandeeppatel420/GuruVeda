@@ -41,7 +41,7 @@ class DoubtActivity : AppCompatActivity() {
 
     private fun spinner() {
         val list = arrayOf("Kotlin", "Dart", "Android", "PHP", "Java", "Python")
-        val adapter = ArrayAdapter(this, com.razorpay.R.layout.support_simple_spinner_dropdown_item, list)
+        val adapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, list)
         binding.enquiryTypeSpinner.adapter = adapter
     }
 
