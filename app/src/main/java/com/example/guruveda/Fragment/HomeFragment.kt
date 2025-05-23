@@ -23,7 +23,9 @@ import com.example.guruveda.DoubtActivity
 import com.example.guruveda.FreeVideoActivity
 import com.example.guruveda.R
 import com.example.guruveda.View.SelectCoursesActivity
+import com.example.guruveda.ViewModel.AllCouresGet
 import com.example.guruveda.ViewModel.GetUserDataViewModel
+import com.example.guruveda.ViewModel.HomeViewModel
 import com.example.guruveda.allAdapter.FreeVideosAdapter
 import com.example.guruveda.allAdapter.RecommendedCoursesAdapter
 import com.google.firebase.firestore.FirebaseFirestore
@@ -39,12 +41,15 @@ class HomeFragment : Fragment() {
     lateinit var freeVideosRecyclerView: RecyclerView
     lateinit var recommendedCoursesAdapter: RecommendedCoursesAdapter
     lateinit var freeVideosAdapter: FreeVideosAdapter
+    lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
 
         db = FirebaseFirestore.getInstance()
@@ -112,18 +117,27 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(imageList)
 
         if (selectedCourse != null) {
-            selectedCoursesGet(selectedCourse)
+            homeViewModel.getSelectedCourses(selectedCourse)
         } else {
-            coursesGet()
+            homeViewModel.getAllCourses()
         }
-
         if (freeVideo1 != null) {
-            freeVideosGet(freeVideo1)
-        }
-        else{
-            freeVideosGet1()
+            homeViewModel.getFreeVideosByType(freeVideo1)
+        } else {
+            homeViewModel.getAllFreeVideos()
         }
 
+        homeViewModel.courses.observe(viewLifecycleOwner) { list ->
+            recommendedCoursesList.clear()
+            recommendedCoursesList.addAll(list)
+            recommendedCoursesAdapter.notifyDataSetChanged()
+        }
+
+        homeViewModel.freeVideosList.observe(viewLifecycleOwner) { list ->
+            freeVideosList.clear()
+            freeVideosList.addAll(list)
+            freeVideosAdapter.notifyDataSetChanged()
+        }
         return view
     }
 
@@ -141,6 +155,7 @@ class HomeFragment : Fragment() {
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun coursesGet(){
         db.collection("courses").get()
             .addOnSuccessListener {
