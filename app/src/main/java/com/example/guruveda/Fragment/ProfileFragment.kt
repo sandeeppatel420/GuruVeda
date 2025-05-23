@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth
 class ProfileFragment : Fragment() {
     private var binding: FragmentProfileBinding?=null
     private lateinit var viewModel: GetUserDataViewModel
-    private lateinit var datalist:ArrayList<AuthModel>
+    private lateinit var dataList:ArrayList<AuthModel>
     @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +40,9 @@ class ProfileFragment : Fragment() {
         }
 
 
-        datalist=ArrayList()
+        dataList=ArrayList()
         binding?.editLayout?.setOnClickListener {
-            if (datalist.isNotEmpty()) {
+            if (dataList.isNotEmpty()) {
                 val name = binding?.userNameText1?.text.toString()
                 val email = binding?.userEmailText1?.text.toString()
                 val phone=binding?.userPhoneText1?.text.toString()
@@ -50,8 +50,8 @@ class ProfileFragment : Fragment() {
                 intent.putExtra("name", name)
                 intent.putExtra("email", email)
                 intent.putExtra("phone", phone)
-                intent.putExtra("imageProfile", datalist[0].imageProfile)
-                intent.putExtra("id", datalist[0].userId)
+                intent.putExtra("imageProfile", dataList[0].imageProfile)
+                intent.putExtra("id", dataList[0].userId)
                 startActivity(intent)
             } else {
                 Toast.makeText(requireContext(), "Please wait, data is loading...", Toast.LENGTH_SHORT).show()
@@ -64,7 +64,7 @@ class ProfileFragment : Fragment() {
             binding?.userNameText1?.text=it.name
             binding?.userEmailText1?.text=it.email
             binding?.userPhoneText1?.text=it.phoneNumber
-            datalist.add(it)
+            dataList.add(it)
             Glide.with(requireContext())
                 .load(it.imageProfile)
                 .into(binding?.profileImage!!)
