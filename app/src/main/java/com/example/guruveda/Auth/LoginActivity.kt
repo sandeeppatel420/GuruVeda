@@ -12,14 +12,13 @@ import com.example.guruveda.MainActivity
 import com.example.guruveda.ViewModel.AuthViewModel
 import com.example.guruveda.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding:ActivityLoginBinding
-    lateinit var userViewModel: AuthViewModel
+    private lateinit var userViewModel: AuthViewModel
     private lateinit var progressDialog: ProgressDialog
     val auth=FirebaseAuth.getInstance()
-    val db=FirebaseDatabase.getInstance()
+    private var userEmail:String=""
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,42 +38,42 @@ class LoginActivity : AppCompatActivity() {
 
         userViewModel= ViewModelProvider(this)[AuthViewModel::class.java]
         binding.loginBtn.setOnClickListener {
-            val userEmail=binding.emailLogin.text.toString()
-            val userPassword=binding.passwordLogin.text.toString()
+              userEmail = binding.emailLogin.text.toString()
+            val userPassword = binding.passwordLogin.text.toString()
 
-
-            if (userEmail=="") {
-                showToast("Enter a  email")
-
-            }
-            else if (userPassword==""){
-                showToast("Enter a  password")
-            }
-            else{
-                progressDialog.show()
-                userViewModel.login(userEmail, userPassword)
-            }
-            }
-
-
-        userViewModel.users.observe(this) {
-            progressDialog.dismiss()
-            if (it!=null) {
-                startActivity(Intent(this, MainActivity::class.java))
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                finish()
-            } else {
-                Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
+            when {
+                userEmail.isEmpty() -> showToast("Enter an email")
+                !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches() -> showToast("Enter a valid email")
+                userPassword.isEmpty() -> showToast("Enter a password")
+                else -> {
+                    progressDialog.show()
+                    userViewModel.login(userEmail, userPassword)
+                }
             }
         }
+
+
+        userViewModel.loginStatus.observe(this) { result ->
+            progressDialog.dismiss()
+            when (result) {
+                "success" -> {
+                    showToast("Login Successful")
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+                "Email not registered" -> showToast("Email not registered")
+                "Password is incorrect" -> showToast("Incorrect password")
+                "Invalid email format" -> showToast("Invalid email format")
+                "User account is disabled" -> showToast("User account is disabled")
+                else -> showToast(result ?: "Login Failed")
+            }
+        }
+
+
     }
     private fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
-//    private fun isValidPassword(password: String): Boolean {
-//        val passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@\$!%*?&]{8,}$"
-//        return password.matches(Regex(passwordPattern))
-//    }
 
 }
