@@ -57,7 +57,7 @@ class DoubtActivity : AppCompatActivity() {
 
 
 
-            viewModel.addDoubt(subjectName, doubtMessage, selectedImageUri) { success ->
+            viewModel.addDoubt(subjectName, doubtMessage, selectedImageUri,this@DoubtActivity) { success ->
                 if (success) {
                     binding.circleProgressView.visibility = View.VISIBLE
                     val animator = ObjectAnimator.ofInt(binding.circleProgressView, "progress", 0, 100)

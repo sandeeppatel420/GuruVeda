@@ -18,6 +18,7 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.guruveda.DataModel.CourseModel
 import com.example.guruveda.DataModel.FreeVideosDataModel
+import com.example.guruveda.Notification.NotificationActivity
 import com.example.guruveda.activities.DoubtActivity
 
 import com.example.guruveda.R
@@ -44,6 +45,8 @@ class HomeFragment : Fragment() {
     lateinit var freeVideosAdapter: FreeVideosAdapter
     lateinit var testSeries: TextView
     lateinit var downloads: TextView
+    lateinit var viewAllRecommended: TextView
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -51,6 +54,24 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val notificationIcon = view.findViewById<ImageView>(R.id.notification_icon)
+        notificationIcon.setOnClickListener {
+            val intent = Intent(requireContext(), NotificationActivity::class.java)
+            startActivity(intent)
+        }
+
+        viewAllRecommended = view.findViewById(R.id.viewAllRecommended)
+
+        viewAllRecommended.setOnClickListener {
+            val intent = Intent(requireContext(), AllCourseActivity::class.java)
+            startActivity(intent)
+        }
+        val freeVideoAll = view.findViewById<TextView>(R.id.viewAllFree)
+        freeVideoAll.setOnClickListener {
+            val intent = Intent(requireContext(), FreeVideoActivity::class.java)
+            startActivity(intent)
+        }
 
 
         db = FirebaseFirestore.getInstance()
@@ -72,6 +93,7 @@ class HomeFragment : Fragment() {
         val textView1 = view.findViewById<TextView>(R.id.allCouresHome)
         val selectedTextView = view.findViewById<TextView>(R.id.selected_TextView)
 
+       val title = arguments?.getString("title")
 
         selectedTextView.setOnClickListener {
             val intent = Intent(requireContext(), SelectCoursesActivity::class.java)

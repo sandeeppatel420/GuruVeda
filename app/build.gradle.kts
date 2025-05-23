@@ -19,6 +19,11 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    packagingOptions {
+        exclude ("META-INF/DEPENDENCIES")
+        exclude ("META-INF/LICENSE")
+        exclude ("META-INF/NOTICE")
+    }
 
     buildTypes {
         release {
@@ -75,6 +80,15 @@ dependencies {
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
 
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
+
+    implementation( "com.google.firebase:firebase-messaging:23.4.1")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
+
+
+    implementation("com.google.auth:google-auth-library-oauth2-http:1.15.0")
 
 }

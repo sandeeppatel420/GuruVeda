@@ -1,6 +1,7 @@
 package com.example.guruveda.allAdapter
 
 import android.app.Activity
+import android.content.Intent
 import android.media.MediaMetadataRetriever
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guruveda.DataModel.FreeVideosDataModel
 import com.example.guruveda.R
+import com.example.guruveda.activities.VideoPlayerActivity
 
 class FreeVideosAdapter(val list: ArrayList<FreeVideosDataModel>):RecyclerView.Adapter<FreeVideosAdapter.FreeVideosViewHolder>() {
     override fun onCreateViewHolder(
@@ -29,6 +31,12 @@ class FreeVideosAdapter(val list: ArrayList<FreeVideosDataModel>):RecyclerView.A
         holder.freeVideoDescription.text=item.description
         getThumbnailFromVideoUrl(item.videoUrl.toString(),holder.freeVideoImage)
         holder.freeVideoDuration.text=item.duration
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, VideoPlayerActivity::class.java)
+            intent.putExtra("videoUrl", item.videoUrl)
+            intent.putExtra("title", item.title)
+            holder.itemView.context.startActivity(intent)
+        }
 
 
     }
