@@ -17,7 +17,6 @@
         android:background="#FFFFFF"
         android:padding="6dp">
 
-        <!-- Thumbnail with Duration Overlay -->
         <FrameLayout
             android:layout_width="120dp"
             android:layout_height="80dp"
