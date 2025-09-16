@@ -76,7 +76,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:961682338072:android:d2fa97040d795979dc6e6d",
         "android_client_info": {
-          "package_name": "com.example.guruveda"
+          "package_name": "com.user.guruveda"
         }
       },
       "oauth_client": [
@@ -84,7 +84,7 @@
           "client_id": "961682338072-qbshcpraqnopslq1rdba8p6om7l13ler.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.guruveda",
+            "package_name": "com.user.guruveda",
             "certificate_hash": "d13af26cce1d2a5c7c74ffe55d7b7179fad711ab"
           }
         },

@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.guruveda"
+    namespace = "com.user.guruveda"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.guruveda"
+        applicationId = "com.user.guruveda"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -90,5 +90,7 @@ dependencies {
 
 
     implementation("com.google.auth:google-auth-library-oauth2-http:1.15.0")
+// show and hide password icon
+    implementation("com.google.android.material:material:1.12.0")
 
 }

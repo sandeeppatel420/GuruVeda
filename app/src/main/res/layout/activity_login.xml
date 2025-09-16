@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:orientation="vertical"
     android:background="@color/white"
@@ -50,18 +51,24 @@
             tools:ignore="RtlSymmetry,TextFields" />
 
 
-        <EditText
-            android:id="@+id/passwordLogin"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:padding="10dp"
-            android:background="@drawable/shape"
-            android:hint="@string/enter_password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            tools:ignore="RtlHardcoded" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="false"
+          >
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape"
+                android:hint="@string/enter_password"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/forgot_password"
